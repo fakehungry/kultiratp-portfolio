@@ -1,95 +1,80 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import Image from "next/image";
+import styles from "./page.module.css";
+import ConcaveSvg from "@/component/concave-svg/ConcaveSvg";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
+      <header>
+        <nav className={styles.nav}>
+          <Image
+            className={styles.homeIcon}
+            src="/png/home-icon.png"
+            alt="kultirat-home-icon"
+            width={48}
+            height={48}
+          />
+          <ul className={styles.navMenuUl}>
+            <li>About</li>
+            <li>Project</li>
+            <li>Blog</li>
+            <li>Dark Theme</li>
+            <li>
+              <button className={styles.navResumeBtn}>Resume</button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section className={styles.hero}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className={styles.heroAvatar}
+          alt="kultirat-avatar"
+          src="/png/avatar-pic.png"
+          width={186}
+          height={186}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <h1 className={styles.heroName}>Hi! I’m Kultirat 👋🏻</h1>
+        <div className={styles.heroQuote}>
+          Building digital products, brands and experiences.
+        </div>
+        <div className={styles.heroDesc}>
+          A UX/UI Designer, Responsive design and web development.
+        </div>
+      </section>
+      <section className={styles.skill}>
+        <h2 className={styles.skillTitle}>What I am capable of</h2>
+        <p className={styles.skillDesc}>
+          I design digital products based on customer insights and UX/UI best
+          practices. I help design and built your app and website from scratch
+          to launch.
+        </p>
+        <ConcaveSvg />
+      </section>
+      <section className={styles.projects}>
+        <h2 className={styles.projectsTitle}>Projects</h2>
+        <div className={styles.projectContainer}>
+          <div className={styles.projectCard}>
+            <div className={styles.projectDetails}>
+              <h3 className={styles.projectTitle}>FINNIE</h3>
+              <p className={styles.projectDesc}>
+                Personal financial planner that help everyone reach your
+                financial goals with simple way.
+              </p>
+              <div className={styles.projectTags}>
+                <span className={styles.projectTag}>UX/UI Design</span>
+                <span className={styles.projectTag}>Web Development</span>
+              </div>
+            </div>
+            <Image
+              alt="finnie"
+              src="/png/finnie.png"
+              width={400}
+              height={300}
+            />
+          </div>
+        </div>
+      </section>
     </main>
-  )
+  );
 }
