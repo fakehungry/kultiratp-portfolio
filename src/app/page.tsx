@@ -2,8 +2,21 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import ConcaveSvg from "@/component/concave-svg/ConcaveSvg";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [projects, setProjects] = useState<any>();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch("/api/projects", { cache: "no-store" });
+
+        return res.json();
+      } catch (error) {}
+    })().then((data) => setProjects(data.projects));
+  }, []);
+
   return (
     <main className={styles.main}>
       <header>
@@ -54,25 +67,27 @@ export default function Home() {
       <section className={styles.projects}>
         <h2 className={styles.projectsTitle}>Projects</h2>
         <div className={styles.projectContainer}>
-          <div className={styles.projectCard}>
-            <div className={styles.projectDetails}>
-              <h3 className={styles.projectTitle}>FINNIE</h3>
-              <p className={styles.projectDesc}>
-                Personal financial planner that help everyone reach your
-                financial goals with simple way.
-              </p>
-              <div className={styles.projectTags}>
-                <span className={styles.projectTag}>UX/UI Design</span>
-                <span className={styles.projectTag}>Web Development</span>
+          {projects?.map((project: any) => (
+            <div key={project._id} className={styles.projectCard}>
+              <div className={styles.projectDetails}>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDesc}>{project.description}</p>
+                <div className={styles.projectTags}>
+                  {project.tags.map((tag: string, i: number) => (
+                    <span key={i} className={styles.projectTag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
+              <Image
+                alt={project.title}
+                src={project.img}
+                width={400}
+                height={300}
+              />
             </div>
-            <Image
-              alt="finnie"
-              src="/png/finnie.png"
-              width={400}
-              height={300}
-            />
-          </div>
+          ))}
         </div>
       </section>
     </main>
