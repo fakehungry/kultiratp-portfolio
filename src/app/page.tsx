@@ -6,7 +6,7 @@ import Quote from "@/(component)/quote-section/Quote";
 import Contact from "@/(component)/contact-section/Contact";
 import Navbar from "@/(component)/navbar/Navbar";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <Navbar />

@@ -25,8 +25,8 @@ const Experience = (props: Props) => {
               <Image
                 src="https://s3-alpha-sig.figma.com/img/bd6c/56cc/6f25f2f2e34dba98419868e6b622dd73?Expires=1701648000&Signature=ZzJKJRdrgLmEBJTaDAEq6R4oJY2nPlaR59ihaa~urpUy5MyfX-8ZR25cT2ZnopAG7R3K42BbaBLhSVN5pGRSXq0FirKpNuOzCM95ilBrMR68vkuPFI5davx03~zeYpH-aMwNNB9swEQFqZ1BRpJrBXdXboGprM-bUlQ8AIt8fKv-gXsV5gklEN76d7lw4bwB4FF7aubol4sIAmWUMMe298d2dJkRjGbHpIugFFQIYDdRGnf~FAnTQ3PKPdkTMbtyx-vdcgvfPvLdIcNESL1ZJIuXWavjEF5u2r-R2uioZSM1Sn1NUIv3lNn1IDBjpn9~JbGeMgIhp5BOxiUX5spMpg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                 alt="pttep"
+                style={{ objectFit: "cover" }}
                 fill
-                objectFit="cover"
               />
             </PTTEPImgContainer>
             <span>PTTEP</span>

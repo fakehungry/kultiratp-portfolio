@@ -41,7 +41,6 @@ const AboutMe = (props: Props) => {
             src="https://s3-alpha-sig.figma.com/img/5137/eb06/be2f4df3b21d43d783260d1241301323?Expires=1701648000&Signature=XDWJ3wNN0zu8aDwyEa~wNedF-FZq23fKjlaOv0g34xHb324KyXiyRV1tt2z5h~NqhwPkrOLtfSPru1o9DsytP29Nj7jSMkXzxRSLzFLi42beZno7ezzROTaLk37tWURXG6y5yqLyCjXg3aZyK5AwPI6OxbnBsfqdINq4OEPrde6oIIVYwT288ex1H2OEpwmPZy7udDhqQXPPzenE1vPkJWJYatA0v-s6u8jC20d0lIs5B~CQNB--OQ8Y-oI58r95FS~PCvvEzni5m-nES2QXe4XBYygs8tPM13waKHnW4ecjTF1xhySrpN~P1WV8TNdJ3MhfDkt4v8TLYRvpOqvdVw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
             alt="about-me-img"
             fill
-            objectFit="cover"
           />
         </AboutMeImgContainer>
       </AboutMeCard>
@@ -98,4 +97,5 @@ const AboutMeImgContainer = styled.div`
 
 const AboutMeImg = styled(Image)`
   border-radius: 100%;
+  object-fit: cover;
 `;
