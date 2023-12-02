@@ -38,10 +38,10 @@ const Experience = (props: Props) => {
           <h4>Responsibility:</h4>
           <ul>
             <li>
-              Research user experiences by selecting research methods to get
+              {`Research user experiences by selecting research methods to get
               insight, behavior, pain point and potential improvements Analyze
-              synthetic data to define persona, user&aposs problems, ideate
-              wireframe & prototype for design solution
+              synthetic data to define persona, user's problems, ideate
+              wireframe & prototype for design solution`}
             </li>
             <li>
               Create UI designs for mobile responsive and develop design system
@@ -109,7 +109,6 @@ const ExperienceTabs = styled(Tabs)`
     display: flex;
     gap: 24px;
     cursor: pointer;
-    width: 100%;
   }
 
   .react-tabs__tab {
@@ -119,7 +118,6 @@ const ExperienceTabs = styled(Tabs)`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
     border-radius: 40px;
     background: #f8fafd;
     backdrop-filter: blur(2px);
@@ -127,6 +125,10 @@ const ExperienceTabs = styled(Tabs)`
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   .react-tabs__tab--selected {

@@ -11,8 +11,8 @@ const AboutMe = (props: Props) => {
         <AboutMeDetail>
           <AbountMeTitle>Get to know me</AbountMeTitle>
           <AbountMeDesc>
-            Greetings! I&aposm Kultirat Phongpun, a UX/UI Designer based in
-            Bangkok, Thailand.
+            {`Greetings! I'm Kultirat Phongpun, a UX/UI Designer based in
+            Bangkok, Thailand.`}
             <br />
             <br />
             <br />

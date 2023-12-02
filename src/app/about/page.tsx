@@ -4,6 +4,7 @@ import Design from "@/(component)/design-section/Design";
 import Experience from "@/(component)/experience-section/Experience";
 import Footer from "@/(component)/footer/Footer";
 import Navbar from "@/(component)/navbar/Navbar";
+import Tool from "@/(component)/tool-section/Tool";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import React from "react";
@@ -25,6 +26,7 @@ const AboutPage = (props: Props) => {
       <AboutMe />
       <Experience />
       <Design />
+      <Tool />
       <Footer />
     </>
   );
