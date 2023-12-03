@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
 import UpperRightIcon from "../svg/UpperRightIcon";
+import MoreUpIcon from "../svg/MoreUpIcon";
+import PlayIcon from "../svg/PlayIcon";
 
 type Props = {};
 
@@ -42,6 +44,10 @@ const Projects = (props: Props) => {
                     width={542}
                     height={400}
                   />
+                  <HoveringIconContainer>
+                    <MoreUpIcon />
+                    <PlayIcon />
+                  </HoveringIconContainer>
                 </ProjectImgContainer>
               </>
             ) : (
@@ -182,6 +188,35 @@ const ProjectImg = styled(Image)`
   z-index: 2;
   background-color: #fff1b8;
   border-radius: 12px;
+
+  &:hover {
+    opacity: 0.5;
+    border-radius: 9999px;
+  }
+
+  &:hover + div {
+    display: flex;
+  }
+`;
+
+const HoveringIconContainer = styled.div`
+  display: none;
+  position: relative;
+  display: flex;
+  gap: 33%;
+  left: 0;
+  transform: translate(30%, -100px);
+  z-index: 4;
+
+  svg {
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff1b8;
+    border-radius: 100%;
+  }
 `;
 
 const ProjectMore = styled.button`

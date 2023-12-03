@@ -4,11 +4,13 @@ import Image from "next/image";
 import MoonIcon from "../svg/MoonIcon";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@/app/styles/AppThemeProvider";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const router = useRouter();
+  const { setTheme } = useTheme();
 
   return (
     <header>
@@ -32,7 +34,11 @@ const Navbar = (props: Props) => {
           </li>
         </NavMenuUl>
         <NavRightMenu>
-          <MoonIcon />
+          <MoonIcon
+            onClick={() => {
+              setTheme((theme) => (theme === "light" ? "dark" : "light"));
+            }}
+          />
           <NavResumeBtn>Resume</NavResumeBtn>
         </NavRightMenu>
       </Nav>

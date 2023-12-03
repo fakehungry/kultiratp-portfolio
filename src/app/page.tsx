@@ -5,16 +5,21 @@ import Projects from "@/(component)/projects-section/Projects";
 import Quote from "@/(component)/quote-section/Quote";
 import Contact from "@/(component)/contact-section/Contact";
 import Navbar from "@/(component)/navbar/Navbar";
+import styled from "@emotion/styled";
 
 export default function HomePage() {
   return (
-    <main>
+    <Main>
       <Navbar />
       <Hero />
       <Skill />
       <Projects />
       <Quote />
       <Contact />
-    </main>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  background-color: ${({ theme }) => theme.primaryBgColor};
+`;

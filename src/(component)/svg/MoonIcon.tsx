@@ -1,6 +1,8 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  onClick: () => void;
+};
 
 const MoonIcon = (props: Props) => {
   return (
@@ -10,6 +12,7 @@ const MoonIcon = (props: Props) => {
       height="34"
       viewBox="0 0 34 34"
       fill="none"
+      onClick={props.onClick}
     >
       <g filter="url(#filter0_dd_485_1666)">
         <path

@@ -29,5 +29,6 @@
     ".next/types/**/*.ts",
     "src/app/api/projects/route.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "typeRoots": ["emotion.d.ts"]
 }
