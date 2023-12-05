@@ -1,19 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import MoonIcon from "../svg/MoonIcon";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/app/styles/AppThemeProvider";
+import { LuMoonStar } from "react-icons/lu";
+import { LuSunMedium } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const router = useRouter();
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
+
+  const [hState, sethState] = useState("top");
+
+  const spring = {
+    type: "spring",
+    damping: 10,
+    stiffness: 400,
+  };
+
+  useEffect(() => {
+    var lastVal = 0;
+    window.onscroll = function () {
+      let y = window.scrollY;
+      if (y > lastVal) {
+        sethState("down");
+      }
+      if (y < lastVal) {
+        sethState("up");
+      }
+      if (y === 0) {
+        sethState("top");
+      }
+      lastVal = y;
+    };
+  }, []);
 
   return (
-    <header>
+    <Header state={hState} boxShadow={theme}>
       <Nav>
         <NavHomeIcon
           src="https://s3-alpha-sig.figma.com/img/ab13/cdfe/dec8cde00c48e8781674199a98b2a459?Expires=1702252800&Signature=B3YQdeJ0VxcZadooaw-RcI7qfyTrCcbk5-bIdqfmOXTvNux~rw0Ce4GH3oFAMMgBulrSyBRMSpnkqc8ctjfD9ddCONKtl4fFFepl8ZmKzwuWCttBnvGMtAcicKsn5ad3lfzobfcEWi0DM6Phx1E36APbHRmqgC2qVa4hAxkQrl1vCR8LyHsS-RiTEkGvhZupc8-jCFNLeHnT2RHTnqv59u3XyxpAF31qGK7TG3bFODZWlyIkkVFzt11Ted2DX06gmWVXvhYRC9MF-MVTtv8JyKUfqn9jZSyAP8m-vTCZfuwtO7RiRPKYDehenNFCMPVtIIjOYqrLEoztiBzbYvLCQQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -21,32 +48,90 @@ const Navbar = (props: Props) => {
           width={48}
           height={48}
           onClick={() => router.push("/")}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={spring}
         />
         <NavMenuUl>
           <li>
-            <Link href="/about">About</Link>
+            <LinkMenu href="/about" whileHover={{ color: "white" }}>
+              About
+            </LinkMenu>
           </li>
           <li>
-            <Link href="/projects">Projects</Link>
+            <LinkMenu href="/projects" whileHover={{ color: "white" }}>
+              Projects
+            </LinkMenu>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <LinkMenu href="/blog" whileHover={{ color: "white" }}>
+              Blog
+            </LinkMenu>
           </li>
         </NavMenuUl>
         <NavRightMenu>
-          <MoonIcon
-            onClick={() => {
-              setTheme((theme) => (theme === "light" ? "dark" : "light"));
-            }}
-          />
-          <NavResumeBtn>Resume</NavResumeBtn>
+          {theme === "light" ? (
+            <SunIcon
+              onClick={() =>
+                setTheme((theme) => (theme === "light" ? "dark" : "light"))
+              }
+            />
+          ) : (
+            <MoonIcon
+              onClick={() =>
+                setTheme((theme) => (theme === "light" ? "dark" : "light"))
+              }
+            />
+          )}
+
+          <NavResumeBtn
+            onClick={() => {}}
+            whileHover={{ scale: 1.1, color: "white" }}
+            whileTap={{ scale: 0.9 }}
+            transition={spring}
+          >
+            Resume
+          </NavResumeBtn>
         </NavRightMenu>
       </Nav>
-    </header>
+    </Header>
   );
 };
 
 export default Navbar;
+
+const Header = styled.header<{ state: string; boxShadow: string }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  background: ${({ theme }) => theme.primaryBgColor};
+  box-shadow: ${({ boxShadow }) =>
+    boxShadow === "light"
+      ? "0px 8px 8px -4px rgba(16, 24, 40, 0.03), 0px 20px 24px -4px rgba(16, 24, 40, 0.08)"
+      : "0px 8px 8px -4px rgba(242, 250, 255, 0.03), 0px 20px 24px -4px rgba(242, 250, 255, 0.08)"};
+
+  ${(props) => {
+    if (props.state === "top") {
+      return `
+        transition: all 0.5s ease-in-out;
+        transform: translateY(0);
+      `;
+    } else if (props.state === "down") {
+      return `
+        transition: all 0.5s ease-in-out;
+        transform: translateY(-100%);
+      `;
+    } else if (props.state === "up") {
+      return `
+        transition: all 0.5s ease-in-out;
+        transform: translateY(0);
+      `;
+    }
+  }};
+`;
 
 const Nav = styled.nav`
   display: flex;
@@ -57,10 +142,12 @@ const Nav = styled.nav`
   line-height: 1.2;
 `;
 
-const NavHomeIcon = styled(Image)`
+const NavHomeIcon = motion(styled(Image)`
   border-radius: 100%;
   cursor: pointer;
-`;
+`);
+
+const LinkMenu = motion(styled(Link)``);
 
 const NavMenuUl = styled.ul`
   display: inline-flex;
@@ -80,7 +167,8 @@ const NavMenuUl = styled.ul`
   }
 `;
 
-const NavResumeBtn = styled.button`
+const NavResumeBtn = motion(styled.button`
+  cursor: pointer;
   display: flex;
   padding: 12px 18px;
   justify-content: center;
@@ -91,7 +179,7 @@ const NavResumeBtn = styled.button`
   background: #ffe58f;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
     0px 1px 3px 0px rgba(16, 24, 40, 0.1);
-`;
+`);
 
 const NavRightMenu = styled.div`
   display: inline-flex;
@@ -102,4 +190,13 @@ const NavRightMenu = styled.div`
     width: 32px;
     height: 32px;
   }
+`;
+
+const MoonIcon = styled(LuMoonStar)`
+  color: ${(props) => props.theme.primaryFgColor};
+  cursor: pointer;
+`;
+
+const SunIcon = styled(LuSunMedium)`
+  cursor: pointer;
 `;

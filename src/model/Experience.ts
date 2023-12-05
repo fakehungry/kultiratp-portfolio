@@ -1,13 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
 const experienceSchema = new Schema({
-  title: String,
+  job_title: String,
   position: String,
-  startDate: Date,
-  endDate: Date || String,
-  responsibilities: [String],
+  start_date: Date,
+  end_date: Date || String,
+  responsibility: [String],
   projects: [String],
-  certificates: [String],
+  certification: [String],
 });
 
 const Experience =

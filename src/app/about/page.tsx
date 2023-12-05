@@ -13,7 +13,7 @@ type Props = {};
 
 const AboutPage = (props: Props) => {
   return (
-    <>
+    <Main>
       <Navbar />
       <AboutMeImgContainer>
         <AboutMeImg
@@ -28,11 +28,15 @@ const AboutPage = (props: Props) => {
       <Design />
       <Tool />
       <Footer />
-    </>
+    </Main>
   );
 };
 
 export default AboutPage;
+
+const Main = styled.main`
+  background-color: ${({ theme }) => theme.primaryBgColor};
+`;
 
 const AboutMeImgContainer = styled.div`
   width: 100%;

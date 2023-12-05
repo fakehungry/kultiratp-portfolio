@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import UpperRightIcon from "../svg/UpperRightIcon";
-import LinkedInIcon from "../svg/LinkedInIcon";
-import BehanceIcon from "../svg/BehanceIcon";
-import InstagramIcon from "../svg/InstagramIcon";
-import DribbleIcon from "../svg/DribbleIcon";
+import { FaLinkedin } from "react-icons/fa";
+import { FaBehanceSquare } from "react-icons/fa";
+import { FaDribbble } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
 
 type Props = {};
 
@@ -23,13 +23,13 @@ const Contact = (props: Props) => {
       <ContactTitle>Say Hello.</ContactTitle>
       <ContactBtn>
         <span>kultirat.p@gmail.com</span>
-        <UpperRightIcon />
+        <BsArrowUpRightCircleFill />
       </ContactBtn>
       <ContactSocial>
-        <LinkedInIcon />
-        <BehanceIcon />
-        <DribbleIcon />
-        <InstagramIcon />
+        <FaLinkedin />
+        <FaBehanceSquare />
+        <FaDribbble />
+        <FaInstagram />
       </ContactSocial>
     </ContactSection>
   );

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import UpperRightIcon from "../svg/UpperRightIcon";
-import MoreUpIcon from "../svg/MoreUpIcon";
-import PlayIcon from "../svg/PlayIcon";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { TbChevronsUpRight } from "react-icons/tb";
+import { CiPlay1 } from "react-icons/ci";
 
-type Props = {};
+type Props = {
+  isShowMore?: boolean;
+};
 
 const Projects = (props: Props) => {
   const [projects, setProjects] = useState<any>();
@@ -17,8 +19,15 @@ const Projects = (props: Props) => {
 
         return res.json();
       } catch (error) {}
-    })().then((data) => setProjects(data.projects));
-  }, []);
+    })().then((data) => {
+      if (props.isShowMore) {
+        const showProjects = data.projects.slice(0, 3);
+        setProjects(showProjects);
+      } else {
+        setProjects(data.projects);
+      }
+    });
+  }, [props.isShowMore]);
 
   return (
     <ProjectsSection>
@@ -45,8 +54,8 @@ const Projects = (props: Props) => {
                     height={400}
                   />
                   <HoveringIconContainer>
-                    <MoreUpIcon />
-                    <PlayIcon />
+                    <TbChevronsUpRight />
+                    <CiPlay1 />
                   </HoveringIconContainer>
                 </ProjectImgContainer>
               </>
@@ -59,6 +68,10 @@ const Projects = (props: Props) => {
                     width={542}
                     height={400}
                   />
+                  <HoveringIconContainer>
+                    <TbChevronsUpRight />
+                    <CiPlay1 />
+                  </HoveringIconContainer>
                 </ProjectImgContainer>
                 <ProjectDetail>
                   <ProjectTitle>{project.title}</ProjectTitle>
@@ -74,10 +87,12 @@ const Projects = (props: Props) => {
           </ProjectCard>
         ))}
       </ProjectContainer>
-      <ProjectMore>
-        <ProjectMoreText>See more work</ProjectMoreText>
-        <UpperRightIcon />
-      </ProjectMore>
+      {props.isShowMore ? (
+        <ProjectMore>
+          <ProjectMoreText>See more work</ProjectMoreText>
+          <BsArrowUpRightCircleFill />
+        </ProjectMore>
+      ) : null}
     </ProjectsSection>
   );
 };
@@ -87,12 +102,11 @@ export default Projects;
 const ProjectsSection = styled.section`
   display: flex;
   padding: 120px 80px 80px;
-  background: #fcfcfd;
   flex-direction: column;
 `;
 
 const ProjectsTitle = styled.h2`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   text-align: justify;
   font-size: 48px;
   font-weight: 700;
@@ -125,7 +139,7 @@ const ProjectDetail = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   text-align: justify;
   font-size: 36px;
   font-weight: 700;
@@ -134,7 +148,7 @@ const ProjectTitle = styled.h3`
 `;
 
 const ProjectDesc = styled.p`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   font-size: 16px;
   line-height: 1.5;
 `;
@@ -188,24 +202,31 @@ const ProjectImg = styled(Image)`
   z-index: 2;
   background-color: #fff1b8;
   border-radius: 12px;
+  transition: all 0.3s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:has(+ div:hover) {
     opacity: 0.5;
     border-radius: 9999px;
   }
 
-  &:hover + div {
-    display: flex;
+  & + div {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover + div,
+  & + div:hover {
+    opacity: 1;
   }
 `;
 
 const HoveringIconContainer = styled.div`
-  display: none;
   position: relative;
   display: flex;
   gap: 33%;
   left: 0;
-  transform: translate(30%, -100px);
+  transform: translate(27%, -100px);
   z-index: 4;
 
   svg {
@@ -216,6 +237,7 @@ const HoveringIconContainer = styled.div`
     align-items: center;
     background-color: #fff1b8;
     border-radius: 100%;
+    cursor: pointer;
   }
 `;
 

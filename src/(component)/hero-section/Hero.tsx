@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -14,12 +15,19 @@ const Hero = (props: Props) => {
         height={186}
       />
       <HeroName>
-        <span>Hi! I’m Kultirat </span>
-        <Image
+        <span>{`Hi! I’m Kultirat`}</span>
+        <HiImage
           alt="kultirat-wave"
           src="https://s3-alpha-sig.figma.com/img/cfe1/1ca5/5be4fd2e1fac1e9f0db81d6d0df645e5?Expires=1701648000&Signature=Th3HH6TxcilQKYoEj0cbJxJRWCbgamWs6VMumnRx6OmScG~pSuRJ~B4LWTzZwJ0pdNn~yet6y2zvXvkdYSbDD~ybYm6lEF8ofY~mXOZdIw7Bbzwhkxm1pF2Q~1IN~1TtvtDkyrcHOilIODDqSQyWPIqNuc8S5VVjq8EDnAlpoBNZFMj1Vx5fva0oQHy-ZrGmbbJC8BvXPexca--tk3J9A8NtLoDjQK0brzFdj0ENkNWlJ3Klnv8s8P2SiYKeVAqFZbw-XC5-iaIheLhhUxHkcXNbe-iYm6ShoCXGjpYMVv8AZcFEqHbYBgG-Yv6iZMYo544T4NPx9wzn6seHI7Zpeg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
           width={40}
           height={40}
+          animate={{ rotate: [0, 20, 40, 20, 0] }}
+          transition={{
+            times: [0, 0.25, 0.5, 0.75, 1],
+            duration: 0.5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
         />
       </HeroName>
       <HeroQuote>Building digital products, brands and experiences.</HeroQuote>
@@ -51,16 +59,16 @@ const HeroName = styled.h1`
   justify-content: center;
   align-items: center;
   gap: 12px;
-  color: #1f1f1f;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.5;
+  color: ${(props) => props.theme.primaryFgColor};
 `;
 
 const HeroQuote = styled.div`
   max-width: 800px;
   margin-top: 24px;
-  color: #1f1f1f;
+  color: ${(props) => props.theme.primaryFgColor};
   text-align: center;
   font-size: 48px;
   font-weight: 700;
@@ -70,9 +78,11 @@ const HeroQuote = styled.div`
 
 const HeroDesc = styled.div`
   margin-top: 8px;
-  color: #616161;
+  color: ${(props) => props.theme.secondaryFgColor};
   text-align: center;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
 `;
+
+const HiImage = motion(styled(Image)``);

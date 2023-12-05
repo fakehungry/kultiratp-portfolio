@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import LinkedInIcon from "../svg/LinkedInIcon";
-import BehanceIcon from "../svg/BehanceIcon";
-import DribbleIcon from "../svg/DribbleIcon";
-import InstagramIcon from "../svg/InstagramIcon";
+import { FaLinkedin } from "react-icons/fa";
+import { FaBehanceSquare } from "react-icons/fa";
+import { FaDribbble } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaMedium } from "react-icons/fa6";
 
 type Props = {};
 
@@ -25,10 +26,11 @@ const Footer = (props: Props) => {
         <FooterFollowMe>
           <h4>Follow Me</h4>
           <div className="social">
-            <LinkedInIcon />
-            <BehanceIcon />
-            <DribbleIcon />
-            <InstagramIcon />
+            <FaLinkedin />
+            <FaBehanceSquare />
+            <FaDribbble />
+            <FaInstagram />
+            <FaMedium />
           </div>
         </FooterFollowMe>
       </FooterContent>

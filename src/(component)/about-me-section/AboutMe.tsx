@@ -52,7 +52,6 @@ export default AboutMe;
 
 const AboutMeSection = styled.section`
   height: 100vh;
-  background: #fcfcfd;
   margin: 44px 80px 0;
 `;
 
@@ -61,8 +60,9 @@ const AboutMeCard = styled.div`
   justify-content: center;
   align-items: center;
   gap: 120px;
-  background: #fcfcfd;
+  background: ${({ theme }) => theme.tertiaryBgColor};
   padding: 32px 40px;
+  border-radius: 24px;
 `;
 
 const AboutMeDetail = styled.div`
@@ -73,7 +73,7 @@ const AboutMeDetail = styled.div`
 `;
 
 const AbountMeTitle = styled.h2`
-  color: #00639b;
+  color: ${({ theme }) => theme.tertiaryFgColor};
   font-size: 48px;
   font-weight: 700;
   line-height: 1.25;
@@ -82,7 +82,7 @@ const AbountMeTitle = styled.h2`
 `;
 
 const AbountMeDesc = styled.p`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   font-size: 16px;
   line-height: 1.5;
   max-width: 520px;

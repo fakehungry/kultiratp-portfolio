@@ -10,7 +10,7 @@ type Props = {};
 
 const ProjectsPage = (props: Props) => {
   return (
-    <>
+    <Main>
       <Navbar />
       <ProjectImgContainer>
         <ProjectImg
@@ -22,11 +22,15 @@ const ProjectsPage = (props: Props) => {
       </ProjectImgContainer>
       <Projects />
       <Footer />
-    </>
+    </Main>
   );
 };
 
 export default ProjectsPage;
+
+const Main = styled.main`
+  background-color: ${({ theme }) => theme.primaryBgColor};
+`;
 
 const ProjectImgContainer = styled.div`
   width: 100%;

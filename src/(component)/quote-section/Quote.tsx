@@ -29,8 +29,8 @@ const Quote = (props: Props) => {
 export default Quote;
 
 const QuoteSection = styled.section`
-  background: #fffdf6;
   display: flex;
+  background-color: ${({ theme }) => theme.secondaryBgColor};
   justify-content: center;
   align-items: center;
   gap: 4px;
@@ -54,7 +54,7 @@ const QuoteEnclose = styled.div`
 `;
 
 const QuoteText = styled.div`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   max-width: 60%;
   text-align: center;
   font-size: 48px;

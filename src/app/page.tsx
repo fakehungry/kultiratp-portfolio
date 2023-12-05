@@ -13,7 +13,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <Skill />
-      <Projects />
+      <Projects isShowMore />
       <Quote />
       <Contact />
     </Main>

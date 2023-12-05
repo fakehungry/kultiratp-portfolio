@@ -23,11 +23,11 @@ export default Skill;
 const SkillSection = styled.section`
   height: 100vh;
   padding: 38px 80px 0;
-  background: #fff4cc;
+  background: ${({ theme }) => theme.secondaryBgColor};
 `;
 
 const SkillTitle = styled.h2`
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   font-size: 48px;
   font-weight: 700;
   line-height: 1.25;
@@ -37,7 +37,7 @@ const SkillTitle = styled.h2`
 const SkillDesc = styled.p`
   max-width: 550px;
   margin-top: 26px;
-  color: #1f1f1f;
+  color: ${({ theme }) => theme.primaryFgColor};
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
