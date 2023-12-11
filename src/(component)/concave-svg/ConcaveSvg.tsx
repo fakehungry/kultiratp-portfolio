@@ -7,6 +7,7 @@ export const ConcaveSvg = () => {
   const canvasRef = useRef<any>(null);
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const Engine = Matter.Engine,
@@ -22,6 +23,10 @@ export const ConcaveSvg = () => {
     Common.setDecomp(require("poly-decomp"));
     setDivWidth(boxRef.current.offsetWidth);
     setDivHeight(boxRef.current.offsetHeight);
+
+    if (window.innerWidth <= 768) {
+      setIsMobile(true);
+    }
 
     const engine = Engine.create({});
     const world = engine.world;
@@ -69,11 +74,17 @@ export const ConcaveSvg = () => {
     const userResearch = Bodies.rectangle(
       Math.floor(Math.random() * divWidth),
       Math.floor(Math.random() * 250),
-      172,
-      188,
+      isMobile ? 115 : 178,
+      isMobile ? 120 : 188,
       {
-        //@ts-ignore
-        render: { sprite: { texture: "./svg/user-research.svg" } },
+        render: {
+          //@ts-ignore
+          sprite: {
+            texture: isMobile
+              ? "./svg/user-research-mobile.svg"
+              : "./svg/user-research.svg",
+          },
+        },
       }
     );
 
@@ -81,11 +92,15 @@ export const ConcaveSvg = () => {
     const uxUi = Bodies.rectangle(
       Math.floor(Math.random() * divWidth),
       Math.floor(Math.random() * 250),
-      180,
-      180,
+      isMobile ? 92 : 180,
+      isMobile ? 91 : 180,
       {
-        //@ts-ignore
-        render: { sprite: { texture: "./svg/ux-ui.svg" } },
+        render: {
+          //@ts-ignore
+          sprite: {
+            texture: isMobile ? "./svg/ux-ui-mobile.svg" : "./svg/ux-ui.svg",
+          },
+        },
       }
     );
 
@@ -93,11 +108,17 @@ export const ConcaveSvg = () => {
     const appDesign = Bodies.rectangle(
       Math.floor(Math.random() * divWidth),
       Math.floor(Math.random() * 250),
-      250,
-      150,
+      isMobile ? 126 : 250,
+      isMobile ? 76 : 150,
       {
-        //@ts-ignore
-        render: { sprite: { texture: "./svg/app-design.svg" } },
+        render: {
+          //@ts-ignore
+          sprite: {
+            texture: isMobile
+              ? "./svg/app-design-mobile.svg"
+              : "./svg/app-design.svg",
+          },
+        },
       }
     );
 
@@ -111,7 +132,9 @@ export const ConcaveSvg = () => {
         {
           render: {
             sprite: {
-              texture: "./svg/web-design.svg",
+              texture: isMobile
+                ? "./svg/web-design-mobile.svg"
+                : "./svg/web-design.svg",
             },
           },
         }
@@ -121,11 +144,17 @@ export const ConcaveSvg = () => {
     const designSystem = Bodies.rectangle(
       Math.floor(Math.random() * divWidth),
       Math.floor(Math.random() * 250),
-      297,
-      180,
+      isMobile ? 150 : 297,
+      isMobile ? 91 : 180,
       {
-        //@ts-ignore
-        render: { sprite: { texture: "./svg/design-system.svg" } },
+        render: {
+          //@ts-ignore
+          sprite: {
+            texture: isMobile
+              ? "./svg/design-system-mobile.svg"
+              : "./svg/design-system.svg",
+          },
+        },
       }
     );
 
@@ -133,11 +162,17 @@ export const ConcaveSvg = () => {
     const webDev = Bodies.rectangle(
       Math.floor(Math.random() * divWidth),
       Math.floor(Math.random() * 250),
-      319,
-      180,
+      isMobile ? 161 : 319,
+      isMobile ? 91 : 180,
       {
-        //@ts-ignore
-        render: { sprite: { texture: "./svg/web-dev.svg" } },
+        render: {
+          //@ts-ignore
+          sprite: {
+            texture: isMobile
+              ? "./svg/web-dev-mobile.svg"
+              : "./svg/web-dev.svg",
+          },
+        },
       }
     );
 
@@ -160,16 +195,14 @@ export const ConcaveSvg = () => {
       userResearch,
       uxUi,
       appDesign,
-      webDesign,
+      // webDesign,
       designSystem,
       webDev,
       mouseConstraint,
     ]);
 
-    // keep the mouse in sync with rendering
     render.mouse = mouse;
 
-    // fit the render viewport to the scene
     Render.lookAt(render, {
       min: { x: 0, y: 0 },
       max: { x: divWidth, y: divHeight },
@@ -177,16 +210,15 @@ export const ConcaveSvg = () => {
 
     Runner.run(engine);
     Render.run(render);
-  }, [divHeight, divWidth]);
+  }, [divHeight, divWidth, isMobile]);
 
   return (
     <div
       ref={boxRef}
       style={{
         border: "1px solid white",
-        width: 1200,
-        height: 600,
-        margin: "0 auto",
+        width: "90vw",
+        height: "75vh",
       }}
     >
       <canvas ref={canvasRef} />

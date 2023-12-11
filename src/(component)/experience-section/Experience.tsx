@@ -43,7 +43,7 @@ const Experience = (props: Props) => {
                 <>
                   <PTTEPImgContainer>
                     <Image
-                      src="https://s3-alpha-sig.figma.com/img/bd6c/56cc/6f25f2f2e34dba98419868e6b622dd73?Expires=1701648000&Signature=ZzJKJRdrgLmEBJTaDAEq6R4oJY2nPlaR59ihaa~urpUy5MyfX-8ZR25cT2ZnopAG7R3K42BbaBLhSVN5pGRSXq0FirKpNuOzCM95ilBrMR68vkuPFI5davx03~zeYpH-aMwNNB9swEQFqZ1BRpJrBXdXboGprM-bUlQ8AIt8fKv-gXsV5gklEN76d7lw4bwB4FF7aubol4sIAmWUMMe298d2dJkRjGbHpIugFFQIYDdRGnf~FAnTQ3PKPdkTMbtyx-vdcgvfPvLdIcNESL1ZJIuXWavjEF5u2r-R2uioZSM1Sn1NUIv3lNn1IDBjpn9~JbGeMgIhp5BOxiUX5spMpg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      src="/png/pttep.png"
                       alt={experience.job_title}
                       style={{ objectFit: "cover" }}
                       fill
@@ -97,6 +97,10 @@ const ExperienceSection = styled.section`
   background: ${({ theme }) => theme.primaryBgColor};
   margin: 120px 80px;
   flex-direction: column;
+
+  @media (max-width: 450px) {
+    margin: 60px 0;
+  }
 `;
 
 const ExperienceTitle = styled.h2`
@@ -106,6 +110,10 @@ const ExperienceTitle = styled.h2`
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.96px;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 `;
 
 const ExperienceTabs = styled(Tabs)`
@@ -118,8 +126,13 @@ const ExperienceTabs = styled(Tabs)`
     gap: 24px;
     cursor: pointer;
     margin: 0 0 24px 0;
-    background-color: #f8fafd;
+    background-color: ${({ theme }) => theme.tertiaryBgColor};
     border-radius: 40px;
+
+    @media (max-width: 450px) {
+      margin: 0 16px 24px;
+      gap: 16px;
+    }
   }
 
   .react-tabs__tab {
@@ -130,20 +143,26 @@ const ExperienceTabs = styled(Tabs)`
     justify-content: center;
     align-items: center;
     border-radius: 40px;
-    background: #f8fafd;
     backdrop-filter: blur(2px);
-    color: #000;
+    color: ${({ theme }) => theme.primaryFgColor};
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
+    background-color: ${({ theme }) => theme.tertiaryBgColor};
 
     span {
       margin-left: 8px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 14px;
+      padding: 8px 12px;
     }
   }
 
   .react-tabs__tab--selected {
     background: #fff1b8;
+    color: black;
     font-weight: 500;
     border: none;
   }
@@ -153,6 +172,10 @@ const ExperienceTabs = styled(Tabs)`
     padding: 32px 40px;
     border-radius: 24px;
     background: ${({ theme }) => theme.tertiaryBgColor};
+
+    @media (max-width: 450px) {
+      padding: 24px 16px;
+    }
   }
 
   .react-tabs__tab-panel--selected {
@@ -164,6 +187,13 @@ const ExperienceTabs = styled(Tabs)`
     font-size: 18px;
     font-weight: 700;
     line-height: 1.5;
+
+    @media (max-width: 450px) {
+      font-size: 16px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
   }
 
   h4 {
@@ -172,6 +202,10 @@ const ExperienceTabs = styled(Tabs)`
     font-weight: 600;
     margin-top: 24px;
     line-height: 1.5;
+
+    @media (max-width: 450px) {
+      font-weight: 500;
+    }
   }
 
   ul {
@@ -185,6 +219,10 @@ const ExperienceTabs = styled(Tabs)`
     list-style-type: disc;
     list-style-position: outside;
     padding-left: 0.5em;
+
+    @media (max-width: 450px) {
+      font-size: 14px;
+    }
   }
 `;
 

@@ -4,13 +4,24 @@ import styled from "@emotion/styled";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { TbChevronsUpRight } from "react-icons/tb";
 import { CiPlay1 } from "react-icons/ci";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 type Props = {
   isShowMore?: boolean;
 };
 
+const spring = {
+  type: "spring",
+  damping: 10,
+  stiffness: 400,
+};
+
 const Projects = (props: Props) => {
+  const router = useRouter();
+
   const [projects, setProjects] = useState<any>();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +38,10 @@ const Projects = (props: Props) => {
         setProjects(data.projects);
       }
     });
+
+    if (window.innerWidth <= 768) {
+      setIsMobile(true);
+    }
   }, [props.isShowMore]);
 
   return (
@@ -34,8 +49,18 @@ const Projects = (props: Props) => {
       <ProjectsTitle>Projects</ProjectsTitle>
       <ProjectContainer>
         {projects?.map((project: any, i: number) => (
-          <ProjectCard key={i}>
-            {i % 2 === 0 ? (
+          <ProjectCard
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            variants={{
+              visible: { opacity: 1, scale: 1 },
+              hidden: { opacity: 0, scale: 0 },
+            }}
+            key={i}
+          >
+            {i % 2 === 0 && !isMobile ? (
               <>
                 <ProjectDetail>
                   <ProjectTitle>{project.title}</ProjectTitle>
@@ -88,7 +113,12 @@ const Projects = (props: Props) => {
         ))}
       </ProjectContainer>
       {props.isShowMore ? (
-        <ProjectMore>
+        <ProjectMore
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={spring}
+          onClick={() => router.push("/projects")}
+        >
           <ProjectMoreText>See more work</ProjectMoreText>
           <BsArrowUpRightCircleFill />
         </ProjectMore>
@@ -103,6 +133,10 @@ const ProjectsSection = styled.section`
   display: flex;
   padding: 120px 80px 80px;
   flex-direction: column;
+
+  @media (max-width: 450px) {
+    padding: 48px 16px 80px;
+  }
 `;
 
 const ProjectsTitle = styled.h2`
@@ -115,6 +149,11 @@ const ProjectsTitle = styled.h2`
   margin-bottom: 40px;
   text-decoration: underline #ffe58f 10px solid;
   text-underline-position: under;
+
+  @media (max-width: 450px) {
+    font-size: 24px;
+    text-decoration: underline #ffe58f 5px solid;
+  }
 `;
 
 const ProjectContainer = styled.div`
@@ -122,11 +161,18 @@ const ProjectContainer = styled.div`
   flex-direction: column;
 `;
 
-const ProjectCard = styled.div`
+const ProjectCard = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 120px 64px;
+
+  @media (max-width: 450px) {
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const ProjectDetail = styled.div`
@@ -136,6 +182,10 @@ const ProjectDetail = styled.div`
   margin: 24px 0;
   gap: 24px;
   max-width: 520px;
+
+  @media (max-width: 450px) {
+    gap: 8px;
+  }
 `;
 
 const ProjectTitle = styled.h3`
@@ -145,12 +195,20 @@ const ProjectTitle = styled.h3`
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.72px;
+
+  @media (max-width: 450px) {
+    font-size: 24px;
+  }
 `;
 
 const ProjectDesc = styled.p`
   color: ${({ theme }) => theme.primaryFgColor};
   font-size: 16px;
   line-height: 1.5;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `;
 
 const ProjectTags = styled.div`
@@ -167,6 +225,11 @@ const ProjectTag = styled.span`
   text-align: center;
   font-size: 14px;
   line-height: 1.4;
+
+  @media (max-width: 450px) {
+    font-size: 12px;
+    padding: 8px;
+  }
 `;
 
 const ProjectImgContainer = styled.div`
@@ -195,6 +258,27 @@ const ProjectImgContainer = styled.div`
     z-index: 1;
     border-radius: 100%;
   }
+
+  @media (max-width: 450px) {
+    img {
+      width: 311px;
+      height: 243px;
+    }
+
+    &::before {
+      bottom: 30px;
+      left: -10px;
+      width: 23px;
+      height: 23px;
+    }
+
+    &::after {
+      top: -15px;
+      right: -15px;
+      width: 36px;
+      height: 36px;
+    }
+  }
 `;
 
 const ProjectImg = styled(Image)`
@@ -222,26 +306,28 @@ const ProjectImg = styled(Image)`
 `;
 
 const HoveringIconContainer = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
-  gap: 33%;
-  left: 0;
-  transform: translate(27%, -100px);
+  transform: translate(0, -250%);
   z-index: 4;
+  margin-left: 30%;
+  gap: 150px;
 
   svg {
-    width: 44px;
-    height: 44px;
-    padding: 12px;
-    justify-content: center;
-    align-items: center;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
     background-color: #fff1b8;
     border-radius: 100%;
     cursor: pointer;
   }
+
+  @media (max-width: 450px) {
+    gap: 64px;
+  }
 `;
 
-const ProjectMore = styled.button`
+const ProjectMore = styled(motion.button)`
   display: inline-flex;
   padding: 16px;
   align-items: center;

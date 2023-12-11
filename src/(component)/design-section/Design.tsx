@@ -46,12 +46,13 @@ const Design = (props: Props) => {
               <li className={`stack stack-1`}>
                 <ul className="cards-down">
                   {designsStack1?.map((design: any) => (
-                    <li key={design.title} className={`card card-${card++}`}>
+                    <li
+                      key={design.title}
+                      className={`card card-${card++ % 3}`}
+                    >
+                      <h1>{design.title}</h1>
                       <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <div className="content">
-                        <h1>{design.title}</h1>
-                        <p>{design.description}</p>
-                      </div>
+                      <p>{design.description}</p>
                     </li>
                   ))}
                 </ul>
@@ -64,11 +65,9 @@ const Design = (props: Props) => {
                       key={design.title}
                       className={`card card-${card++ % 3}`}
                     >
+                      <h1>{design.title}</h1>
                       <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <div className="content">
-                        <h1>{design.title}</h1>
-                        <p>{design.description}</p>
-                      </div>
+                      <p>{design.description}</p>
                     </li>
                   ))}
                 </ul>
@@ -81,11 +80,9 @@ const Design = (props: Props) => {
                       key={design.title}
                       className={`card card-${card++ % 3}`}
                     >
+                      <h1>{design.title}</h1>
                       <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <div className="content">
-                        <h1>{design.title}</h1>
-                        <p>{design.description}</p>
-                      </div>
+                      <p>{design.description}</p>
                     </li>
                   ))}
                 </ul>
@@ -105,12 +102,15 @@ const DesignSection = styled.section`
   flex-direction: column;
   margin: 120px 80px;
   height: fit-content;
+
+  @media (max-width: 450px) {
+    margin: 0;
+  }
 `;
 
 const DesignContent = styled.div`
   display: flex;
   flex-direction: column;
-
   padding: 32px 40px;
   border-radius: 24px;
   background: ${({ theme }) => theme.tertiaryBgColor};
@@ -121,6 +121,10 @@ const DesignTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
   line-height: 1.3;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 `;
 
 const DesignDesc = styled.p`
@@ -131,19 +135,28 @@ const DesignDesc = styled.p`
   max-width: 600px;
   margin-top: 24px;
   margin-bottom: 60px;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
 `;
 
 const CardStack = styled.div`
   ul.card-stacks {
-    max-width: 660px;
+    max-width: 990px;
     list-style-type: none;
     margin: 0 auto 20px;
     padding: 0;
     position: relative;
     cursor: pointer;
-    height: 250px;
+    height: 300px;
     transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
     transition-delay: 0.4s;
+
+    @media (max-width: 450px) {
+      height: 300px;
+    }
 
     li.stack {
       position: absolute;
@@ -160,11 +173,11 @@ const CardStack = styled.div`
           transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
           left: 0px;
           transition-delay: 0.4s;
-          background: ${({ theme }) => theme.secondaryBgColor};
-          color: ${({ theme }) => theme.secondaryFgColor};
+          background: #fff4cc;
+          color: #616161;
           overflow: hidden;
-          height: 200px;
-          width: 200px;
+          height: 300px;
+          width: 300px;
           border-radius: 10px;
           position: absolute;
           top: 0px;
@@ -173,23 +186,49 @@ const CardStack = styled.div`
             max-width: 100%;
             height: auto;
           }
-          div.content {
-            padding: 5px 10px;
-            h1 {
-            }
-            p {
-            }
+
+          h1 {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+          }
+
+          p {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+          }
+
+          svg {
+            width: 100px;
+            height: 100px;
+            color: ${({ theme }) => theme.primaryBgColor};
           }
 
           &.card-1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            flex-direction: column;
             z-index: 10;
             transform: rotateZ(-2deg);
           }
           &.card-2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            flex-direction: column;
             z-index: 9;
             transform: rotateZ(-7deg);
           }
-          &.card-3 {
+          &.card-0 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 20px;
+            flex-direction: column;
             z-index: 8;
             transform: rotateZ(5deg);
           }
@@ -198,30 +237,64 @@ const CardStack = styled.div`
     }
 
     &.transition {
-      height: 700px;
+      height: 950px;
       transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
       transition-delay: 0.4s;
+
+      @media (max-width: 450px) {
+        height: 2950px;
+      }
 
       li.stack {
         &.stack-1 {
           left: 0px;
         }
         &.stack-2 {
-          left: 220px;
+          left: 330px;
         }
         &.stack-3 {
-          left: 440px;
+          left: 660px;
         }
         ul.cards-down {
           li.card {
             transform: rotateZ(0deg);
             &.card-1 {
-              top: 440px;
+              top: 660px;
             }
             &.card-2 {
-              top: 220px;
+              top: 330px;
             }
-            &.card-3 {
+            &.card-0 {
+              top: 0px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 450px) {
+        li.stack {
+          &.stack-1 {
+            left: 25px;
+          }
+          &.stack-2 {
+            left: 25px;
+            top: 990px;
+          }
+          &.stack-3 {
+            left: 25px;
+            top: 1980px;
+          }
+          ul.cards-down {
+            li.card {
+              &.card-1 {
+                top: 330px;
+              }
+              &.card-2 {
+                top: 660px;
+              }
+              &.card-0 {
+                top: 0px;
+              }
             }
           }
         }

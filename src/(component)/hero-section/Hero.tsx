@@ -3,16 +3,15 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-type Props = {};
-
-const Hero = (props: Props) => {
+const Hero = () => {
   return (
     <HeroSection>
-      <HeroAvatar
+      <Image
+        className="avatar-img"
         alt="kultirat-avatar"
         src="https://s3-alpha-sig.figma.com/img/6c44/ed86/1e10db58cc21318d89a6e5f7e62a6ef1?Expires=1701648000&Signature=Mp1WhXLHlh8tmd7UiGxwdXugPHcFyCocFb-KfvAPKP5tJmZGxZegDoRAUC1L7GVAZG2-2rjggGs7ez2MyyvGSnk41pG0Ocmwb0DohTzlVovOxodA9JC-RrjPDDY4gr1C7tWO80A~WzQb4dgvIXP82weoAakZbDNF1TVRbNuqMG73TQMd7acF9lp6gkZ3fFMJg6qXvrYptNtDeST8vDxQIlepBrObCkgEILnykBIys-BzcDTMwtO8lcQOy4R7-1cWI5mMpVHsJm8B~6LJwtsMEctfSF-fJEqWp8~ZAXDyFEt~EkcEqU7Cmv6Y2ieT8PZJyAwRoPZRqPdLdE77gkzy8g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-        width={186}
-        height={186}
+        width={180}
+        height={180}
       />
       <HeroName>
         <span>{`Hi! I’m Kultirat`}</span>
@@ -47,11 +46,21 @@ const HeroSection = styled.section`
   justify-content: center;
   align-items: center;
   height: 100vh;
-`;
+  background-color: ${({ theme }) => theme.primaryBgColor};
 
-const HeroAvatar = styled(Image)`
-  border-radius: 100%;
-  margin-bottom: 8px;
+  .avatar-img {
+    margin-bottom: 8px;
+    border-radius: 100%;
+  }
+
+  @media (max-width: 450px) {
+    padding: 0 32px;
+
+    .avatar-img {
+      width: 120px;
+      height: 120px;
+    }
+  }
 `;
 
 const HeroName = styled.h1`
@@ -63,17 +72,30 @@ const HeroName = styled.h1`
   font-weight: 600;
   line-height: 1.5;
   color: ${(props) => props.theme.primaryFgColor};
+
+  @media (max-width: 450px) {
+    font-size: 16px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
 `;
 
 const HeroQuote = styled.div`
   max-width: 800px;
   margin-top: 24px;
-  color: ${(props) => props.theme.primaryFgColor};
+  color: ${({ theme }) => theme.primaryFgColor};
   text-align: center;
   font-size: 48px;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.96px;
+
+  @media (max-width: 450px) {
+    font-size: 24px;
+  }
 `;
 
 const HeroDesc = styled.div`
@@ -83,6 +105,10 @@ const HeroDesc = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `;
 
-const HiImage = motion(styled(Image)``);
+const HiImage = motion(Image);

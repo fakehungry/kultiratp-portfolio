@@ -19,6 +19,7 @@ const Contact = (props: Props) => {
           height={238}
           alt="contact-avatar"
         />
+        <div className="bg-img" />
       </ContactImgContainer>
       <ContactTitle>Say Hello.</ContactTitle>
       <ContactBtn>
@@ -54,17 +55,39 @@ const ContactTitle = styled.h2`
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -1.44px;
+
+  @media (max-width: 450px) {
+    font-size: 36px;
+  }
 `;
 
 const ContactImgContainer = styled.div`
   position: relative;
-  width: 238px;
-  height: 238px;
+
+  .bg-img {
+    width: 188px;
+    height: 138px;
+    bottom: 5%;
+    left: 10%;
+    position: absolute;
+    border-radius: 67.5px;
+    background: #f16529;
+
+    @media (max-width: 450px) {
+      width: 142.185px;
+      height: 104.37px;
+    }
+  }
 `;
 
 const ContactImg = styled(Image)`
   position: relative;
   z-index: 2;
+
+  @media (max-width: 450px) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 const ContactBtn = styled.button`
@@ -75,10 +98,24 @@ const ContactBtn = styled.button`
   border-radius: 40px;
   background: #fff;
   border: none;
+
+  span {
+    font-size: 16px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const ContactSocial = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 `;

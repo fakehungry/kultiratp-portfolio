@@ -13,11 +13,7 @@ const ProjectsPage = (props: Props) => {
     <Main>
       <Navbar />
       <ProjectImgContainer>
-        <ProjectImg
-          src="https://s3-alpha-sig.figma.com/img/e334/bee3/04b67e512c53b0ae282b74b4a4216d78?Expires=1702252800&Signature=nK05QrenrYUt3lc23Y1C5SPj0TH5fe1wwrPDMUPHvBbCEh0-SUf2wfncw7kk6j5i6UHyVWuyWkGdlDQFTUoQEVIXz80D2qm3Nkx4n72DXckxwhuhavUTjkvFVnzNv5scGoyNqXXM5z44He4qgCsfy1efIV0fAWY1-RQvSw1SWWOAWr3PEKSUSaY0NXJxcoSJT9sXEIZY8xv~t2MhgqMdqDOVR~zV1uVPaSjhfs1zAQyPa3NnKimRJPoo3cVa1W7Gtx8aUlMAoi8LLaxh74ZJODUymSFyq1qUu-j1QJbSl7gAP9w6IgxU4KCE8sk7v7JXT3RpC5RoLhmALG0cokR6iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-          alt="projects"
-          fill
-        />
+        <ProjectImg src="/png/banner-projects.png" alt="projects" fill />
         <ProjectImgOverlay>Projects</ProjectImgOverlay>
       </ProjectImgContainer>
       <Projects />
@@ -36,10 +32,15 @@ const ProjectImgContainer = styled.div`
   width: 100%;
   height: 280px;
   position: relative;
+  margin: 68px 0 0;
+
+  @media (max-width: 450px) {
+    height: 140px;
+    margin: 64px 0 0;
+  }
 `;
 
 const ProjectImg = styled(Image)`
-  border-radius: 12px;
   object-fit: cover;
 `;
 
@@ -57,4 +58,8 @@ const ProjectImgOverlay = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 12px;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 `;

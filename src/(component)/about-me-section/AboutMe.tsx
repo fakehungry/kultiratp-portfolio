@@ -37,11 +37,7 @@ const AboutMe = (props: Props) => {
           </AbountMeDesc>
         </AboutMeDetail>
         <AboutMeImgContainer>
-          <AboutMeImg
-            src="https://s3-alpha-sig.figma.com/img/5137/eb06/be2f4df3b21d43d783260d1241301323?Expires=1701648000&Signature=XDWJ3wNN0zu8aDwyEa~wNedF-FZq23fKjlaOv0g34xHb324KyXiyRV1tt2z5h~NqhwPkrOLtfSPru1o9DsytP29Nj7jSMkXzxRSLzFLi42beZno7ezzROTaLk37tWURXG6y5yqLyCjXg3aZyK5AwPI6OxbnBsfqdINq4OEPrde6oIIVYwT288ex1H2OEpwmPZy7udDhqQXPPzenE1vPkJWJYatA0v-s6u8jC20d0lIs5B~CQNB--OQ8Y-oI58r95FS~PCvvEzni5m-nES2QXe4XBYygs8tPM13waKHnW4ecjTF1xhySrpN~P1WV8TNdJ3MhfDkt4v8TLYRvpOqvdVw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-            alt="about-me-img"
-            fill
-          />
+          <AboutMeImg src="/png/about-me-img.png" alt="about-me-img" fill />
         </AboutMeImgContainer>
       </AboutMeCard>
     </AboutMeSection>
@@ -53,6 +49,10 @@ export default AboutMe;
 const AboutMeSection = styled.section`
   height: 100vh;
   margin: 44px 80px 0;
+
+  @media (max-width: 450px) {
+    margin: 0;
+  }
 `;
 
 const AboutMeCard = styled.div`
@@ -63,6 +63,12 @@ const AboutMeCard = styled.div`
   background: ${({ theme }) => theme.tertiaryBgColor};
   padding: 32px 40px;
   border-radius: 24px;
+
+  @media (max-width: 450px) {
+    flex-direction: column-reverse;
+    gap: 0;
+    padding: 24px 16px;
+  }
 `;
 
 const AboutMeDetail = styled.div`
@@ -79,6 +85,10 @@ const AbountMeTitle = styled.h2`
   line-height: 1.25;
   letter-spacing: -0.96px;
   margin: 24px 0;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 `;
 
 const AbountMeDesc = styled.p`
@@ -86,6 +96,10 @@ const AbountMeDesc = styled.p`
   font-size: 16px;
   line-height: 1.5;
   max-width: 520px;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `;
 
 const AboutMeImgContainer = styled.div`
@@ -93,6 +107,11 @@ const AboutMeImgContainer = styled.div`
   position: relative;
   width: 370px;
   height: 360px;
+
+  @media (max-width: 450px) {
+    width: 160px;
+    height: 160px;
+  }
 `;
 
 const AboutMeImg = styled(Image)`

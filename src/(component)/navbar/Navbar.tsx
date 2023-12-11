@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,15 +6,19 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "@/app/styles/AppThemeProvider";
 import { LuMoonStar } from "react-icons/lu";
 import { LuSunMedium } from "react-icons/lu";
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
+import { SidebarMenu } from "./SidebarMenu";
+import Hamburger from "hamburger-react";
+import { useClickOutside } from "@/app/utils/use-click-outside";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const router = useRouter();
   const { setTheme, theme } = useTheme();
 
   const [hState, sethState] = useState("top");
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef() as React.MutableRefObject<any>;
+  useClickOutside(containerRef, () => toggleOpen(0));
 
   const spring = {
     type: "spring",
@@ -71,13 +75,13 @@ const Navbar = (props: Props) => {
         </NavMenuUl>
         <NavRightMenu>
           {theme === "light" ? (
-            <SunIcon
+            <MoonIcon
               onClick={() =>
                 setTheme((theme) => (theme === "light" ? "dark" : "light"))
               }
             />
           ) : (
-            <MoonIcon
+            <SunIcon
               onClick={() =>
                 setTheme((theme) => (theme === "light" ? "dark" : "light"))
               }
@@ -92,6 +96,15 @@ const Navbar = (props: Props) => {
           >
             Resume
           </NavResumeBtn>
+          <HamburgerMenuContainer
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            ref={containerRef}
+          >
+            <HamburgerMenuBackground />
+            <SidebarMenu isOpen={isOpen} />
+            <Hamburger size={24} toggled={isOpen} toggle={() => toggleOpen()} />
+          </HamburgerMenuContainer>
         </NavRightMenu>
       </Nav>
     </Header>
@@ -140,6 +153,15 @@ const Nav = styled.nav`
   align-items: center;
   font-size: 16px;
   line-height: 1.2;
+
+  @media (max-width: 450px) {
+    padding: 8px;
+
+    .home-icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
 `;
 
 const NavHomeIcon = motion(styled(Image)`
@@ -165,6 +187,10 @@ const NavMenuUl = styled.ul`
     font-size: 16px;
     line-height: 1.2;
   }
+
+  @media (max-width: 450px) {
+    display: none;
+  }
 `;
 
 const NavResumeBtn = motion(styled.button`
@@ -179,6 +205,10 @@ const NavResumeBtn = motion(styled.button`
   background: #ffe58f;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
     0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+
+  @media (max-width: 450px) {
+    display: none;
+  }
 `);
 
 const NavRightMenu = styled.div`
@@ -193,10 +223,28 @@ const NavRightMenu = styled.div`
 `;
 
 const MoonIcon = styled(LuMoonStar)`
-  color: ${(props) => props.theme.primaryFgColor};
   cursor: pointer;
 `;
 
 const SunIcon = styled(LuSunMedium)`
+  color: ${({ theme }) => theme.primaryFgColor};
   cursor: pointer;
+`;
+
+const HamburgerMenuContainer = motion(styled.div`
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  color: ${({ theme }) => theme.primaryFgColor};
+
+  @media (max-width: 450px) {
+    display: block;
+  }
+`);
+
+const HamburgerMenuBackground = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
 `;

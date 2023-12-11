@@ -19,17 +19,50 @@ const Tool = (props: Props) => {
     <ToolSection>
       <ToolTitle>{`Here are tools I've been working with:`}</ToolTitle>
       <Tools>
-        <FaFigma size={40} />
-        <SiAdobephotoshop size={40} />
-        <SiAdobeillustrator size={40} />
-        <CgMaze size={40} />
-        <SiJira size={40} />
-        <RiNotionFill size={40} />
-        <FaHtml5 size={40} />
-        <FaCss3Alt size={40} />
-        <IoLogoJavascript size={40} />
-        <PiFileSqlThin size={40} />
-        <SiMongodb size={40} />
+        <div className="hover-container">
+          <FaFigma size={40} />
+          <div className="hover-content">80%</div>
+        </div>
+        <div className="hover-container">
+          <SiAdobephotoshop size={40} />
+          <div className="hover-content">30%</div>
+        </div>
+        <div className="hover-container">
+          <SiAdobeillustrator size={40} />
+          <div className="hover-content">30%</div>
+        </div>
+        <div className="hover-container">
+          <CgMaze size={40} />
+          <div className="hover-content">50%</div>
+        </div>
+        <div className="hover-container">
+          <SiJira size={40} />
+          <div className="hover-content">80%</div>
+        </div>
+        <div className="hover-container">
+          <RiNotionFill size={40} />
+          <div className="hover-content">80%</div>
+        </div>
+        <div className="hover-container">
+          <FaHtml5 size={40} />
+          <div className="hover-content">50%</div>
+        </div>
+        <div className="hover-container">
+          <FaCss3Alt size={40} />
+          <div className="hover-content">50%</div>
+        </div>
+        <div className="hover-container">
+          <IoLogoJavascript size={40} />
+          <div className="hover-content">30%</div>
+        </div>
+        <div className="hover-container">
+          <PiFileSqlThin size={40} />
+          <div className="hover-content">50%</div>
+        </div>
+        <div className="hover-container">
+          <SiMongodb size={40} />
+          <div className="hover-content">50%</div>
+        </div>
       </Tools>
     </ToolSection>
   );
@@ -47,6 +80,11 @@ const ToolSection = styled.section`
   background: ${({ theme }) => theme.tertiaryBgColor};
   box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
     0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+
+  @media (max-width: 450px) {
+    margin: 120px 0;
+    padding: 24px 16px;
+  }
 `;
 
 const ToolTitle = styled.h2`
@@ -54,6 +92,10 @@ const ToolTitle = styled.h2`
   text-align: justify;
   font-weight: 700;
   line-height: 1.3;
+
+  @media (max-width: 450px) {
+    font-size: 20px;
+  }
 `;
 
 const Tools = styled.div`
@@ -61,4 +103,40 @@ const Tools = styled.div`
   flex-wrap: wrap;
   gap: 32px 50px;
   max-width: 500px;
+  color: ${({ theme }) => theme.primaryFgColor};
+
+  .hover-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    .hover-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: ${({ theme }) => theme.tertiaryBgColor};
+      transition: all 0.5s ease-in-out;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      .hover-content {
+        opacity: 0.9;
+        box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.06),
+          0px 4px 8px -2px rgba(16, 24, 40, 0.1);
+      }
+    }
+  }
+
+  @media (max-width: 450px) {
+    gap: 32px 8px;
+  }
 `;

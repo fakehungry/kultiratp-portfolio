@@ -16,11 +16,7 @@ const AboutPage = (props: Props) => {
     <Main>
       <Navbar />
       <AboutMeImgContainer>
-        <AboutMeImg
-          src="https://s3-alpha-sig.figma.com/img/5473/f8a1/97c6c22918886977ce8add5cfe19e86e?Expires=1702252800&Signature=HlVCbhPqud3hllQjoGkq97Q8Cc7ekxJcYcEA1R0FolIFvG5Z6e6er3zA6zXRszZkUcARwYOhxaYzT0NI2lbIyxBgsNdRCRh4ZNeo2nSXn49MHVW~rpuhj6aKYJQwnCHkC8MbG4C9xWzXnZwathqF~3Q-~Czjytcr-4~s3pARJbYsrcZ1ZiU7M7-UsBeHWIaCYenU6PQwcOJq1jwmRY44yvVyby3OAavjpS46wuV2DZ044pXC4wiLHaoE4MbcJSgil-iSuqHRlxInrHM0onKbJIEmF3aXM5n5jnPiEmYAly-Py-rRLRySruGHJ1~iOp3Mec1hB2QZk2s6mipvbU--vg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-          alt="about"
-          fill
-        />
+        <AboutMeImg src="/png/banner-about.png" alt="about" fill />
         <AboutMeOverlay>About Me</AboutMeOverlay>
       </AboutMeImgContainer>
       <AboutMe />
@@ -42,10 +38,15 @@ const AboutMeImgContainer = styled.div`
   width: 100%;
   height: 280px;
   position: relative;
+  margin: 68px 0 0;
+
+  @media (max-width: 450px) {
+    height: 140px;
+    margin: 64px 0 0;
+  }
 `;
 
 const AboutMeImg = styled(Image)`
-  border-radius: 12px;
   object-fit: cover;
 `;
 
@@ -63,4 +64,8 @@ const AboutMeOverlay = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 12px;
+
+  @media (max-width: 450px) {
+    font-size: 24px;
+  }
 `;

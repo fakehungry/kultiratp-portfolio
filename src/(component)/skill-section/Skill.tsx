@@ -24,6 +24,10 @@ const SkillSection = styled.section`
   height: 100vh;
   padding: 38px 80px 0;
   background: ${({ theme }) => theme.secondaryBgColor};
+
+  @media (max-width: 450px) {
+    padding: 52px 16px 0;
+  }
 `;
 
 const SkillTitle = styled.h2`
@@ -32,6 +36,10 @@ const SkillTitle = styled.h2`
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.96px;
+
+  @media (max-width: 450px) {
+    font-size: 24px;
+  }
 `;
 
 const SkillDesc = styled.p`
@@ -41,4 +49,8 @@ const SkillDesc = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (max-width: 450px) {
+    font-size: 14px;
+  }
 `;

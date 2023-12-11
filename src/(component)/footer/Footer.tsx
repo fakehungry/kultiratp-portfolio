@@ -50,11 +50,22 @@ const FooterSection = styled.footer`
   flex-direction: column;
   margin-top: 130px;
   padding: 60px 80px;
+
+  @media (max-width: 450px) {
+    margin-top: 0;
+    padding: 24px 16px;
+    flex-direction: column;
+  }
 `;
 
 const FooterContent = styled.div`
   display: flex;
   gap: 200px;
+
+  @media (max-width: 450px) {
+    gap: 32px;
+    flex-direction: column;
+  }
 `;
 
 const FooterAddress = styled.div`
@@ -73,6 +84,10 @@ const FooterAddress = styled.div`
     color: #000;
     font-size: 16px;
     line-height: 1.5;
+  }
+
+  @media (max-width: 450px) {
+    gap: 8px;
   }
 `;
 
@@ -93,6 +108,10 @@ const FooterContact = styled.div`
     font-size: 16px;
     line-height: 1.5;
   }
+
+  @media (max-width: 450px) {
+    gap: 8px;
+  }
 `;
 
 const FooterFollowMe = styled.div`
@@ -109,6 +128,10 @@ const FooterFollowMe = styled.div`
       height: 40px;
     }
   }
+
+  @media (max-width: 450px) {
+    gap: 8px;
+  }
 `;
 
 const FooterCopyRight = styled.div`
@@ -117,4 +140,8 @@ const FooterCopyRight = styled.div`
   font-weight: 600;
   line-height: 1.4;
   margin: 200px 0 30px;
+
+  @media (max-width: 450px) {
+    margin: 50px 0 12px;
+  }
 `;
