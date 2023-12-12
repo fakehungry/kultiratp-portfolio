@@ -5,6 +5,8 @@ const projectSchema = new Schema({
   description: String,
   tags: [String],
   img: String,
+  view: String,
+  video: String,
 });
 
 const Project =

@@ -53,7 +53,7 @@ const HeroSection = styled.section`
     border-radius: 100%;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     padding: 0 32px;
 
     .avatar-img {
@@ -73,7 +73,7 @@ const HeroName = styled.h1`
   line-height: 1.5;
   color: ${(props) => props.theme.primaryFgColor};
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 16px;
 
     img {
@@ -93,7 +93,7 @@ const HeroQuote = styled.div`
   line-height: 1.25;
   letter-spacing: -0.96px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 24px;
   }
 `;
@@ -106,7 +106,7 @@ const HeroDesc = styled.div`
   font-weight: 400;
   line-height: 1.5;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;

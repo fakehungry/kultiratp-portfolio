@@ -79,8 +79,12 @@ const Projects = (props: Props) => {
                     height={400}
                   />
                   <HoveringIconContainer>
-                    <TbChevronsUpRight />
-                    <CiPlay1 />
+                    <TbChevronsUpRight
+                      onClick={() => window.open(project?.view, "_blank")}
+                    />
+                    <CiPlay1
+                      onClick={() => window.open(project?.video, "_blank")}
+                    />
                   </HoveringIconContainer>
                 </ProjectImgContainer>
               </>
@@ -94,8 +98,12 @@ const Projects = (props: Props) => {
                     height={400}
                   />
                   <HoveringIconContainer>
-                    <TbChevronsUpRight />
-                    <CiPlay1 />
+                    <TbChevronsUpRight
+                      onClick={() => window.open(project?.view, "_blank")}
+                    />
+                    <CiPlay1
+                      onClick={() => window.open(project?.video, "_blank")}
+                    />
                   </HoveringIconContainer>
                 </ProjectImgContainer>
                 <ProjectDetail>
@@ -134,7 +142,7 @@ const ProjectsSection = styled.section`
   padding: 120px 80px 80px;
   flex-direction: column;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     padding: 48px 16px 80px;
   }
 `;
@@ -150,7 +158,7 @@ const ProjectsTitle = styled.h2`
   text-decoration: underline #ffe58f 10px solid;
   text-underline-position: under;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 24px;
     text-decoration: underline #ffe58f 5px solid;
   }
@@ -167,7 +175,7 @@ const ProjectCard = styled(motion.div)`
   align-items: center;
   padding: 120px 64px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     padding: 16px;
     flex-direction: column;
     justify-content: center;
@@ -183,7 +191,7 @@ const ProjectDetail = styled.div`
   gap: 24px;
   max-width: 520px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     gap: 8px;
   }
 `;
@@ -196,7 +204,7 @@ const ProjectTitle = styled.h3`
   line-height: 1.2;
   letter-spacing: -0.72px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 24px;
   }
 `;
@@ -206,7 +214,7 @@ const ProjectDesc = styled.p`
   font-size: 16px;
   line-height: 1.5;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -226,7 +234,7 @@ const ProjectTag = styled.span`
   font-size: 14px;
   line-height: 1.4;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 12px;
     padding: 8px;
   }
@@ -259,7 +267,7 @@ const ProjectImgContainer = styled.div`
     border-radius: 100%;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     img {
       width: 311px;
       height: 243px;
@@ -286,6 +294,7 @@ const ProjectImg = styled(Image)`
   z-index: 2;
   background-color: #fff1b8;
   border-radius: 12px;
+  object-fit: cover;
   transition: all 0.3s ease-in-out;
 
   &:hover,
@@ -314,16 +323,21 @@ const HoveringIconContainer = styled.div`
   gap: 150px;
 
   svg {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     padding: 4px;
     background-color: #fff1b8;
     border-radius: 100%;
     cursor: pointer;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     gap: 64px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 `;
 
@@ -343,4 +357,5 @@ const ProjectMoreText = styled.span`
   text-align: center;
   font-size: 16px;
   line-height: 1.5;
+  cursor: pointer;
 `;

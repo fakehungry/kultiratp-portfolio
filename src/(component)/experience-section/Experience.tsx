@@ -98,7 +98,7 @@ const ExperienceSection = styled.section`
   margin: 120px 80px;
   flex-direction: column;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     margin: 60px 0;
   }
 `;
@@ -111,7 +111,7 @@ const ExperienceTitle = styled.h2`
   line-height: 1.25;
   letter-spacing: -0.96px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -129,7 +129,7 @@ const ExperienceTabs = styled(Tabs)`
     background-color: ${({ theme }) => theme.tertiaryBgColor};
     border-radius: 40px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       margin: 0 16px 24px;
       gap: 16px;
     }
@@ -154,7 +154,7 @@ const ExperienceTabs = styled(Tabs)`
       margin-left: 8px;
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       font-size: 14px;
       padding: 8px 12px;
     }
@@ -173,7 +173,7 @@ const ExperienceTabs = styled(Tabs)`
     border-radius: 24px;
     background: ${({ theme }) => theme.tertiaryBgColor};
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       padding: 24px 16px;
     }
   }
@@ -188,7 +188,7 @@ const ExperienceTabs = styled(Tabs)`
     font-weight: 700;
     line-height: 1.5;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       font-size: 16px;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -203,7 +203,7 @@ const ExperienceTabs = styled(Tabs)`
     margin-top: 24px;
     line-height: 1.5;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       font-weight: 500;
     }
   }
@@ -220,7 +220,7 @@ const ExperienceTabs = styled(Tabs)`
     list-style-position: outside;
     padding-left: 0.5em;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       font-size: 14px;
     }
   }

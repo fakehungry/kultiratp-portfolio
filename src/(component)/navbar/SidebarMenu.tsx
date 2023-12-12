@@ -85,6 +85,12 @@ const menuItems = [
           damping: 10,
           stiffness: 400,
         }}
+        onClick={() =>
+          window.open(
+            "https://drive.google.com/file/d/1cP1mfPmhiN6exxr6Ze3qW3yj-99S0Mor/view?usp=sharing",
+            "_blank"
+          )
+        }
       >
         Resume
       </Button>

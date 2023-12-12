@@ -103,7 +103,7 @@ const DesignSection = styled.section`
   margin: 120px 80px;
   height: fit-content;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     margin: 0;
   }
 `;
@@ -122,7 +122,7 @@ const DesignTitle = styled.h2`
   font-weight: 700;
   line-height: 1.3;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -136,7 +136,7 @@ const DesignDesc = styled.p`
   margin-top: 24px;
   margin-bottom: 60px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 14px;
     margin-bottom: 24px;
   }
@@ -154,7 +154,7 @@ const CardStack = styled.div`
     transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
     transition-delay: 0.4s;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       height: 300px;
     }
 
@@ -241,7 +241,7 @@ const CardStack = styled.div`
       transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
       transition-delay: 0.4s;
 
-      @media (max-width: 450px) {
+      @media (max-width: 768px) {
         height: 2950px;
       }
 
@@ -271,7 +271,7 @@ const CardStack = styled.div`
         }
       }
 
-      @media (max-width: 450px) {
+      @media (max-width: 768px) {
         li.stack {
           &.stack-1 {
             left: 25px;

@@ -25,7 +25,7 @@ const SkillSection = styled.section`
   padding: 38px 80px 0;
   background: ${({ theme }) => theme.secondaryBgColor};
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     padding: 52px 16px 0;
   }
 `;
@@ -37,7 +37,7 @@ const SkillTitle = styled.h2`
   line-height: 1.25;
   letter-spacing: -0.96px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 24px;
   }
 `;
@@ -50,7 +50,7 @@ const SkillDesc = styled.p`
   font-weight: 400;
   line-height: 1.5;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;

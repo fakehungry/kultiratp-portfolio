@@ -64,7 +64,7 @@ const QuoteFemale = motion(styled(Image)`
   left: 10%;
   z-index: 3;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     width: 40px;
     height: 40px;
   }
@@ -77,7 +77,7 @@ const QuoteEnclose = styled.div`
   position: relative;
   top: -5%;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 40px;
   }
 `;
@@ -91,7 +91,7 @@ const QuoteText = styled.div`
   line-height: 1.25;
   letter-spacing: -0.96px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -102,7 +102,7 @@ const QuoteMale = motion(styled(Image)`
   bottom: 30%;
   right: 10%;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     width: 40px;
     height: 40px;
   }

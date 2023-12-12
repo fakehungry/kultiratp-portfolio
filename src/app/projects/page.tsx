@@ -34,7 +34,7 @@ const ProjectImgContainer = styled.div`
   position: relative;
   margin: 68px 0 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     height: 140px;
     margin: 64px 0 0;
   }
@@ -59,7 +59,7 @@ const ProjectImgOverlay = styled.div`
   height: 100%;
   border-radius: 12px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;

@@ -81,7 +81,7 @@ const ToolSection = styled.section`
   box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
     0px 20px 24px -4px rgba(16, 24, 40, 0.08);
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     margin: 120px 0;
     padding: 24px 16px;
   }
@@ -93,7 +93,7 @@ const ToolTitle = styled.h2`
   font-weight: 700;
   line-height: 1.3;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -136,7 +136,7 @@ const Tools = styled.div`
     }
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     gap: 32px 8px;
   }
 `;

@@ -22,15 +22,34 @@ const Contact = (props: Props) => {
         <div className="bg-img" />
       </ContactImgContainer>
       <ContactTitle>Say Hello.</ContactTitle>
-      <ContactBtn>
+      <ContactBtn
+        onClick={() => (window.location.href = "mailto:kultirat.p@gmail.com")}
+      >
         <span>kultirat.p@gmail.com</span>
         <BsArrowUpRightCircleFill />
       </ContactBtn>
       <ContactSocial>
-        <FaLinkedin />
-        <FaBehanceSquare />
-        <FaDribbble />
-        <FaInstagram />
+        <FaLinkedin
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/kultirat-phongpun-533959102",
+              "_blank"
+            )
+          }
+        />
+        <FaBehanceSquare
+          onClick={() =>
+            window.open("https://www.behance.net/kultiraphongpu1", "_blank")
+          }
+        />
+        <FaDribbble
+          onClick={() => window.open("https://dribbble.com/Phongpun", "_blank")}
+        />
+        <FaInstagram
+          onClick={() =>
+            window.open("https://www.instagram.com/ellepajinko/", "_blank")
+          }
+        />
       </ContactSocial>
     </ContactSection>
   );
@@ -56,7 +75,7 @@ const ContactTitle = styled.h2`
   line-height: 1.25;
   letter-spacing: -1.44px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 36px;
   }
 `;
@@ -73,7 +92,7 @@ const ContactImgContainer = styled.div`
     border-radius: 67.5px;
     background: #f16529;
 
-    @media (max-width: 450px) {
+    @media (max-width: 768px) {
       width: 142.185px;
       height: 104.37px;
     }
@@ -84,13 +103,14 @@ const ContactImg = styled(Image)`
   position: relative;
   z-index: 2;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     width: 180px;
     height: 180px;
   }
 `;
 
 const ContactBtn = styled.button`
+  cursor: pointer;
   display: flex;
   padding: 16px 24px;
   align-items: center;
@@ -115,6 +135,7 @@ const ContactSocial = styled.div`
   gap: 32px;
 
   svg {
+    cursor: pointer;
     width: 24px;
     height: 24px;
   }

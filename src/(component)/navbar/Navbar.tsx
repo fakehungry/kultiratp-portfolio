@@ -89,7 +89,12 @@ const Navbar = () => {
           )}
 
           <NavResumeBtn
-            onClick={() => {}}
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1cP1mfPmhiN6exxr6Ze3qW3yj-99S0Mor/view?usp=sharing",
+                "_blank"
+              );
+            }}
             whileHover={{ scale: 1.1, color: "white" }}
             whileTap={{ scale: 0.9 }}
             transition={spring}
@@ -154,7 +159,7 @@ const Nav = styled.nav`
   font-size: 16px;
   line-height: 1.2;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     padding: 8px;
 
     .home-icon {
@@ -188,7 +193,7 @@ const NavMenuUl = styled.ul`
     line-height: 1.2;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -196,7 +201,8 @@ const NavMenuUl = styled.ul`
 const NavResumeBtn = motion(styled.button`
   cursor: pointer;
   display: flex;
-  padding: 12px 18px;
+  font-size: 16px;
+  padding: 16px 32px;
   justify-content: center;
   align-items: center;
   gap: 60px;
@@ -206,7 +212,7 @@ const NavResumeBtn = motion(styled.button`
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
     0px 1px 3px 0px rgba(16, 24, 40, 0.1);
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `);
@@ -238,7 +244,7 @@ const HamburgerMenuContainer = motion(styled.div`
   left: 0;
   color: ${({ theme }) => theme.primaryFgColor};
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     display: block;
   }
 `);

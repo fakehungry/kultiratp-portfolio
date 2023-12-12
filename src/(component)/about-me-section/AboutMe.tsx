@@ -50,7 +50,7 @@ const AboutMeSection = styled.section`
   height: 100vh;
   margin: 44px 80px 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     margin: 0;
   }
 `;
@@ -64,7 +64,7 @@ const AboutMeCard = styled.div`
   padding: 32px 40px;
   border-radius: 24px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     flex-direction: column-reverse;
     gap: 0;
     padding: 24px 16px;
@@ -86,7 +86,7 @@ const AbountMeTitle = styled.h2`
   letter-spacing: -0.96px;
   margin: 24px 0;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
@@ -97,7 +97,7 @@ const AbountMeDesc = styled.p`
   line-height: 1.5;
   max-width: 520px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -108,7 +108,7 @@ const AboutMeImgContainer = styled.div`
   width: 370px;
   height: 360px;
 
-  @media (max-width: 450px) {
+  @media (max-width: 768px) {
     width: 160px;
     height: 160px;
   }
