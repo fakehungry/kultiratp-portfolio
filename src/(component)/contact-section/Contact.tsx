@@ -14,7 +14,7 @@ const Contact = (props: Props) => {
     <ContactSection>
       <ContactImgContainer>
         <ContactImg
-          src="https://s3-alpha-sig.figma.com/img/ab13/cdfe/dec8cde00c48e8781674199a98b2a459?Expires=1701648000&Signature=P-~4VJs8prpGMuzvJ8YKmnJc41CRihvg34ss1BityQ4GKwMlJsey65CDqhx2hxJhGZLAeJ6QCyttezvAE~jL3pPwwtXtKx580w74B1WfzsGbQyLjZNCBi6OA9OWuxSqz1pIvF9AiJ2qi1-Mm3iN8cbCTT9PW3cvSj~iULxryEKu4KqiiT2YCZ4UNOltj5RdCwdC0MDulmI3Dcncr--XVOYSn67DQM7tFT~9~WrXpax5as1sxhJNwcho5YvfP2Zi0GDhtBH1~gg87Gm8WnUNRouuPHR6IsBhz8HtXQpsBCXr2mMd~SjJQQDabTSTUNQoeA4HHiUFhspUNE6jCqDlYVw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          src="/png/avatar-hello.png"
           width={238}
           height={238}
           alt="contact-avatar"
