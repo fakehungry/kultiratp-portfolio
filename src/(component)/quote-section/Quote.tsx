@@ -9,7 +9,7 @@ const Quote = (props: Props) => {
   return (
     <QuoteSection>
       <QuoteFemale
-        src="https://s3-alpha-sig.figma.com/img/5b6b/fbe7/1ad5ca817f031682ae8854f7d2e78c40?Expires=1701648000&Signature=VZcms13jkiN2YnkleaZ1YxPz647IOM7jua895SjMML2~hEhDEVT2uUV4wPufpadVuhoQCAcbVz2PFzKQESA8pepoKl~a6Vo7-yJydcxP4aWFd-89NuV57JYNnGK43K62wyzgKZ4xoFKNzqyqAP0XtQKc6IEJ~TBSU7Ekl~EwdbfM-m5B8zMkzW~31HxzCq5CRMIm7WA7aZdwTdNuFgceER9Qd4hPMTEx0ayULYDRxlsgS8eu46dI3pmzKjzd5kAWpajBVh2hVmzH-bUbXZLP9GBo-xvTRCmd6aIJHtNaLaNsvRuZ5~U3aIlzoH2UhGWbrP-u1Zifkjosrpssw10dfg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+        src="/png/avatar-female.png"
         width={80}
         height={80}
         alt="female-avatar"
@@ -27,7 +27,7 @@ const Quote = (props: Props) => {
       <QuoteText>I love creating products that bring people together</QuoteText>
       <QuoteEnclose>”</QuoteEnclose>
       <QuoteMale
-        src="https://s3-alpha-sig.figma.com/img/081c/3a3e/2f863fdbdbae75fb5603562efd14bce0?Expires=1701648000&Signature=NJTa4NO0gPrt8PtbZeerRuOLP~KuQSNJvAm4E4qSx4N12OjvuqaGCL1agEMEzxF3fb2r859gp0e6EUjm3Ms64hgX2KdZfRHT3yo9YAqfNA9YuJ34~L08TzzFgWDPLn9Q83M7fCqzMXjzQYRxJYjyFkX0nh5FJef1Gs128dmGUuEZC~qXTV8mdXbDSHGRYECkWHzTFXoY0qPTutvcxBFhsOm8Cd1qejgfibXKZoCAxshFsr70phxMsIYDw-oTrzKkLD6wppDqnxtox39ILuZE0LxR1jlNKLSwW9T15gTIQ2BtL9O0cOhGfsipN0JzIZOznaXpalmD1nXmRg34TUJq8g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+        src="/png/avatar-male.png"
         width={80}
         height={80}
         alt="male-avatar"

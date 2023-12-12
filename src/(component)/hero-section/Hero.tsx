@@ -9,7 +9,7 @@ const Hero = () => {
       <Image
         className="avatar-img"
         alt="kultirat-avatar"
-        src="https://s3-alpha-sig.figma.com/img/6c44/ed86/1e10db58cc21318d89a6e5f7e62a6ef1?Expires=1701648000&Signature=Mp1WhXLHlh8tmd7UiGxwdXugPHcFyCocFb-KfvAPKP5tJmZGxZegDoRAUC1L7GVAZG2-2rjggGs7ez2MyyvGSnk41pG0Ocmwb0DohTzlVovOxodA9JC-RrjPDDY4gr1C7tWO80A~WzQb4dgvIXP82weoAakZbDNF1TVRbNuqMG73TQMd7acF9lp6gkZ3fFMJg6qXvrYptNtDeST8vDxQIlepBrObCkgEILnykBIys-BzcDTMwtO8lcQOy4R7-1cWI5mMpVHsJm8B~6LJwtsMEctfSF-fJEqWp8~ZAXDyFEt~EkcEqU7Cmv6Y2ieT8PZJyAwRoPZRqPdLdE77gkzy8g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+        src="/png/avatar-me.png"
         width={180}
         height={180}
       />
@@ -17,7 +17,7 @@ const Hero = () => {
         <span>{`Hi! I’m Kultirat`}</span>
         <HiImage
           alt="kultirat-wave"
-          src="https://s3-alpha-sig.figma.com/img/cfe1/1ca5/5be4fd2e1fac1e9f0db81d6d0df645e5?Expires=1701648000&Signature=Th3HH6TxcilQKYoEj0cbJxJRWCbgamWs6VMumnRx6OmScG~pSuRJ~B4LWTzZwJ0pdNn~yet6y2zvXvkdYSbDD~ybYm6lEF8ofY~mXOZdIw7Bbzwhkxm1pF2Q~1IN~1TtvtDkyrcHOilIODDqSQyWPIqNuc8S5VVjq8EDnAlpoBNZFMj1Vx5fva0oQHy-ZrGmbbJC8BvXPexca--tk3J9A8NtLoDjQK0brzFdj0ENkNWlJ3Klnv8s8P2SiYKeVAqFZbw-XC5-iaIheLhhUxHkcXNbe-iYm6ShoCXGjpYMVv8AZcFEqHbYBgG-Yv6iZMYo544T4NPx9wzn6seHI7Zpeg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          src="/png/hi-five.png"
           width={40}
           height={40}
           animate={{ rotate: [0, 20, 40, 20, 0] }}
