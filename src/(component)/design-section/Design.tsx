@@ -28,68 +28,76 @@ const Design = (props: Props) => {
   return (
     <>
       <DesignSection>
-        <DesignContent>
-          <DesignTitle>Design:</DesignTitle>
-          <DesignDesc>
-            {`The design skills I've gained from UX/UI practices, coupled with
+        <Container>
+          <DesignContent>
+            <DesignTitle>Design Skills:</DesignTitle>
+            <DesignDesc>
+              {`The design skills I've gained from UX/UI practices, coupled with
         web development skills as demonstrated through this portfolio website.`}
-          </DesignDesc>
-          <CardStack>
-            <ul
-              className="card-stacks"
-              onClick={() => {
-                document
-                  .querySelector(".card-stacks")
-                  ?.classList.toggle("transition");
-              }}
-            >
-              <li className={`stack stack-1`}>
-                <ul className="cards-down">
-                  {designsStack1?.map((design: any) => (
-                    <li
-                      key={design.title}
-                      className={`card card-${card++ % 3}`}
-                    >
-                      <h1>{design.title}</h1>
-                      <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <p>{design.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+            </DesignDesc>
+            <CardStack>
+              <ul
+                className="card-stacks"
+                onClick={() => {
+                  document
+                    .querySelector(".card-stacks")
+                    ?.classList.toggle("transition");
+                }}
+              >
+                <li className={`stack stack-1`}>
+                  <ul className="cards-down">
+                    {designsStack1?.map((design: any) => (
+                      <li
+                        key={design.title}
+                        className={`card card-${card++ % 3}`}
+                      >
+                        <h1>{design.title}</h1>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: design.icon }}
+                        />
+                        <p>{design.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
 
-              <li className={`stack stack-2`}>
-                <ul className="cards-down">
-                  {designsStack2?.map((design: any) => (
-                    <li
-                      key={design.title}
-                      className={`card card-${card++ % 3}`}
-                    >
-                      <h1>{design.title}</h1>
-                      <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <p>{design.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+                <li className={`stack stack-2`}>
+                  <ul className="cards-down">
+                    {designsStack2?.map((design: any) => (
+                      <li
+                        key={design.title}
+                        className={`card card-${card++ % 3}`}
+                      >
+                        <h1>{design.title}</h1>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: design.icon }}
+                        />
+                        <p>{design.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
 
-              <li className={`stack stack-3`}>
-                <ul className="cards-down">
-                  {designsStack3?.map((design: any) => (
-                    <li
-                      key={design.title}
-                      className={`card card-${card++ % 3}`}
-                    >
-                      <h1>{design.title}</h1>
-                      <div dangerouslySetInnerHTML={{ __html: design.icon }} />
-                      <p>{design.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            </ul>
-          </CardStack>
-        </DesignContent>
+                <li className={`stack stack-3`}>
+                  <ul className="cards-down">
+                    {designsStack3?.map((design: any) => (
+                      <li
+                        key={design.title}
+                        className={`card card-${card++ % 3}`}
+                      >
+                        <h1>{design.title}</h1>
+                        <div
+                          dangerouslySetInnerHTML={{ __html: design.icon }}
+                        />
+                        <p>{design.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </ul>
+            </CardStack>
+          </DesignContent>
+        </Container>
       </DesignSection>
     </>
   );
@@ -98,14 +106,19 @@ const Design = (props: Props) => {
 export default Design;
 
 const DesignSection = styled.section`
-  display: flex;
-  flex-direction: column;
   margin: 120px 80px;
   height: fit-content;
 
   @media (max-width: 768px) {
     margin: 0;
   }
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const DesignContent = styled.div`
@@ -154,7 +167,7 @@ const CardStack = styled.div`
     transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
     transition-delay: 0.4s;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       height: 300px;
     }
 
@@ -241,7 +254,7 @@ const CardStack = styled.div`
       transition: all 0.4s cubic-bezier(0.63, 0.15, 0.03, 1.22);
       transition-delay: 0.4s;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         height: 2950px;
       }
 
@@ -271,7 +284,7 @@ const CardStack = styled.div`
         }
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         li.stack {
           &.stack-1 {
             left: 25px;

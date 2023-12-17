@@ -6,51 +6,61 @@ import { FaBehanceSquare } from "react-icons/fa";
 import { FaDribbble } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
-type Props = {};
-
-const Contact = (props: Props) => {
+const Contact = () => {
   return (
     <ContactSection>
-      <ContactImgContainer>
-        <ContactImg
-          src="/png/avatar-hello.png"
-          width={238}
-          height={238}
-          alt="contact-avatar"
-        />
-        <div className="bg-img" />
-      </ContactImgContainer>
-      <ContactTitle>Say Hello.</ContactTitle>
-      <ContactBtn
-        onClick={() => (window.location.href = "mailto:kultirat.p@gmail.com")}
-      >
-        <span>kultirat.p@gmail.com</span>
-        <BsArrowUpRightCircleFill />
-      </ContactBtn>
-      <ContactSocial>
-        <FaLinkedin
-          onClick={() =>
-            window.open(
-              "https://www.linkedin.com/in/kultirat-phongpun-533959102",
-              "_blank"
-            )
-          }
-        />
-        <FaBehanceSquare
-          onClick={() =>
-            window.open("https://www.behance.net/kultiraphongpu1", "_blank")
-          }
-        />
-        <FaDribbble
-          onClick={() => window.open("https://dribbble.com/Phongpun", "_blank")}
-        />
-        <FaInstagram
-          onClick={() =>
-            window.open("https://www.instagram.com/ellepajinko/", "_blank")
-          }
-        />
-      </ContactSocial>
+      <Container>
+        <ContactImgContainer>
+          <ContactImg
+            src="/png/avatar-hello.png"
+            width={238}
+            height={238}
+            alt="contact-avatar"
+          />
+          <div className="bg-img" />
+        </ContactImgContainer>
+        <ContactTitle>Say Hello.</ContactTitle>
+        <ContactBtn
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{
+            type: "spring",
+            damping: 10,
+            stiffness: 400,
+          }}
+          onClick={() => (window.location.href = "mailto:kultirat.p@gmail.com")}
+        >
+          <span>kultirat.p@gmail.com</span>
+          <BsArrowUpRightCircleFill />
+        </ContactBtn>
+        <ContactSocial>
+          <FaLinkedin
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/kultirat-phongpun-533959102",
+                "_blank"
+              )
+            }
+          />
+          <FaBehanceSquare
+            onClick={() =>
+              window.open("https://www.behance.net/kultiraphongpu1", "_blank")
+            }
+          />
+          <FaDribbble
+            onClick={() =>
+              window.open("https://dribbble.com/Phongpun", "_blank")
+            }
+          />
+          <FaInstagram
+            onClick={() =>
+              window.open("https://www.instagram.com/ellepajinko/", "_blank")
+            }
+          />
+        </ContactSocial>
+      </Container>
     </ContactSection>
   );
 };
@@ -58,12 +68,17 @@ const Contact = (props: Props) => {
 export default Contact;
 
 const ContactSection = styled.section`
+  background: #fff1b8;
+  height: 100vh;
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff1b8;
-  height: 100vh;
   gap: 40px;
 `;
 
@@ -109,7 +124,7 @@ const ContactImg = styled(Image)`
   }
 `;
 
-const ContactBtn = styled.button`
+const ContactBtn = motion(styled.button`
   cursor: pointer;
   display: flex;
   padding: 16px 24px;
@@ -127,7 +142,7 @@ const ContactBtn = styled.button`
     width: 24px;
     height: 24px;
   }
-`;
+`);
 
 const ContactSocial = styled.div`
   display: flex;
@@ -138,5 +153,10 @@ const ContactSocial = styled.div`
     cursor: pointer;
     width: 24px;
     height: 24px;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #00639b;
+    }
   }
 `;

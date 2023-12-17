@@ -2,44 +2,44 @@ import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
 
-type Props = {};
-
-const AboutMe = (props: Props) => {
+const AboutMe = () => {
   return (
     <AboutMeSection>
-      <AboutMeCard>
-        <AboutMeDetail>
-          <AbountMeTitle>Get to know me</AbountMeTitle>
-          <AbountMeDesc>
-            {`Greetings! I'm Kultirat Phongpun, a UX/UI Designer based in
+      <Container>
+        <AboutMeCard>
+          <AboutMeDetail>
+            <AbountMeTitle>Get to know me</AbountMeTitle>
+            <AbountMeDesc>
+              {`Greetings! I'm Kultirat Phongpun, a UX/UI Designer based in
             Bangkok, Thailand.`}
-            <br />
-            <br />
-            <br />
-            With a background in Well Services Supervisor at PTTEP for 9+ years.
-            Wide variety of experiences in task management, leadership,
-            problem-solving and business.
-            <br />
-            <br />
-            <br />
-            I discovered my true passion in product designs and web development.
-            This portfolio is my creative journey, showcasing in crafting
-            user-friendly web and app designs.
-            <br />
-            <br />
-            <br />
-            Beyond the design and coding, I love in coffee, travelling, home
-            decorating and identify as a dog person.
-            <br />
-            <br />
-            <br />
-            Welcome to my creative space. I hope you enjoy!
-          </AbountMeDesc>
-        </AboutMeDetail>
-        <AboutMeImgContainer>
-          <AboutMeImg src="/png/about-me-img.png" alt="about-me-img" fill />
-        </AboutMeImgContainer>
-      </AboutMeCard>
+              <br />
+              <br />
+              <br />
+              With a background in Well Services Supervisor at PTTEP for 9+
+              years. Wide variety of experiences in task management, leadership,
+              problem-solving and business.
+              <br />
+              <br />
+              <br />
+              I discovered my true passion in product designs and web
+              development. This portfolio is my creative journey, showcasing in
+              crafting user-friendly web and app designs.
+              <br />
+              <br />
+              <br />
+              Beyond the design and coding, I love in coffee, travelling, home
+              decorating and identify as a dog person.
+              <br />
+              <br />
+              <br />
+              Welcome to my creative space. I hope you enjoy!
+            </AbountMeDesc>
+          </AboutMeDetail>
+          <AboutMeImgContainer>
+            <AboutMeImg src="/png/about-me-img.png" alt="about-me-img" fill />
+          </AboutMeImgContainer>
+        </AboutMeCard>
+      </Container>
     </AboutMeSection>
   );
 };
@@ -47,12 +47,18 @@ const AboutMe = (props: Props) => {
 export default AboutMe;
 
 const AboutMeSection = styled.section`
-  height: 100vh;
-  margin: 44px 80px 0;
+  height: 50vh;
+  margin: 80px 80px 0;
 
   @media (max-width: 768px) {
     margin: 0;
+    height: 100%;
   }
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
 `;
 
 const AboutMeCard = styled.div`

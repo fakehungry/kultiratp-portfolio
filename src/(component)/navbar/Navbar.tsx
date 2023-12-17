@@ -58,17 +58,17 @@ const Navbar = () => {
         />
         <NavMenuUl>
           <li>
-            <LinkMenu href="/about" whileHover={{ color: "white" }}>
+            <LinkMenu href="/about" whileHover={{ color: "#00639B" }}>
               About
             </LinkMenu>
           </li>
           <li>
-            <LinkMenu href="/projects" whileHover={{ color: "white" }}>
+            <LinkMenu href="/projects" whileHover={{ color: "#00639B" }}>
               Projects
             </LinkMenu>
           </li>
           <li>
-            <LinkMenu href="/blog" whileHover={{ color: "white" }}>
+            <LinkMenu href="/blog" whileHover={{ color: "#00639B" }}>
               Blog
             </LinkMenu>
           </li>
@@ -95,7 +95,7 @@ const Navbar = () => {
                 "_blank"
               );
             }}
-            whileHover={{ scale: 1.1, color: "white" }}
+            whileHover={{ scale: 1.1, color: "#00639B" }}
             whileTap={{ scale: 0.9 }}
             transition={spring}
           >

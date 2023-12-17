@@ -40,6 +40,7 @@ const Hero = () => {
 export default Hero;
 
 const HeroSection = styled.section`
+  max-width: 1440px;
   display: flex;
   margin: 0 auto;
   flex-direction: column;

@@ -78,7 +78,7 @@ const menuItems = [
   {
     icon: (
       <Button
-        whileHover={{ scale: 1.1, color: "white" }}
+        whileHover={{ scale: 1.1, color: "#00639B" }}
         whileTap={{ scale: 0.9 }}
         transition={{
           type: "spring",

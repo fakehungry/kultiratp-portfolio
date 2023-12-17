@@ -7,12 +7,14 @@ type Props = {};
 const Skill = (props: Props) => {
   return (
     <SkillSection>
-      <SkillTitle>What I am capable of</SkillTitle>
-      <SkillDesc>
-        I design digital products based on customer insights and UX/UI best
-        practices. I help design and built your app and website from scratch to
-        launch.
-      </SkillDesc>
+      <Container>
+        <SkillTitle>What I am capable of</SkillTitle>
+        <SkillDesc>
+          I design digital products based on customer insights and UX/UI best
+          practices. I help design and built your app and website from scratch
+          to launch.
+        </SkillDesc>
+      </Container>
       <ConcaveSvg />
     </SkillSection>
   );
@@ -21,9 +23,14 @@ const Skill = (props: Props) => {
 export default Skill;
 
 const SkillSection = styled.section`
-  height: 100vh;
-  padding: 38px 80px 0;
+  height: 80vh;
   background: ${({ theme }) => theme.secondaryBgColor};
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 38px 80px 0;
 
   @media (max-width: 768px) {
     padding: 52px 16px 0;

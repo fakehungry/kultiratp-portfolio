@@ -4,9 +4,7 @@ import styled from "@emotion/styled";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import dayjs from "dayjs";
 
-type Props = {};
-
-const Experience = (props: Props) => {
+const Experience = () => {
   const [experiences, setExperiences] = useState<any>();
   const now = dayjs();
 
@@ -24,68 +22,70 @@ const Experience = (props: Props) => {
 
   return (
     <ExperienceSection>
-      <ExperienceTitle>Experience</ExperienceTitle>
-      <ExperienceTabs>
-        <TabList>
-          {experiences?.map((experience: any, i: number) => (
-            <Tab key={i}>
-              {experience.job_title === "Self-Employed" ? (
-                <>
-                  <Image
-                    src="/png/self-employed.png"
-                    alt={experience.job_title}
-                    width={24}
-                    height={24}
-                  />
-                  <span>{experience.job_title}</span>
-                </>
-              ) : (
-                <>
-                  <PTTEPImgContainer>
+      <Container>
+        <ExperienceTitle>Experience</ExperienceTitle>
+        <ExperienceTabs>
+          <TabList>
+            {experiences?.map((experience: any, i: number) => (
+              <Tab key={i}>
+                {experience.job_title === "Self-Employed" ? (
+                  <>
                     <Image
-                      src="/png/pttep.png"
+                      src="/png/self-employed.png"
                       alt={experience.job_title}
-                      style={{ objectFit: "cover" }}
-                      fill
+                      width={24}
+                      height={24}
                     />
-                  </PTTEPImgContainer>
-                  <span>{experience.job_title}</span>
-                </>
-              )}
-            </Tab>
+                    <span>{experience.job_title}</span>
+                  </>
+                ) : (
+                  <>
+                    <PTTEPImgContainer>
+                      <Image
+                        src="/png/pttep.png"
+                        alt={experience.job_title}
+                        style={{ objectFit: "cover" }}
+                        fill
+                      />
+                    </PTTEPImgContainer>
+                    <span>{experience.job_title}</span>
+                  </>
+                )}
+              </Tab>
+            ))}
+          </TabList>
+          {experiences?.map((experience: any) => (
+            <>
+              <TabPanel key={experience.position}>
+                <h3>{experience.position}</h3>
+                <h3>{`${dayjs(experience.start_date).format("MMMM YYYY")} - ${
+                  now.diff(dayjs(experience.end_date), "day") <= 30
+                    ? "Present"
+                    : dayjs(experience.end_date).format("MMMM YYYY")
+                }`}</h3>
+                <h4>Responsibility:</h4>
+                <ul>
+                  {experience.responsibility.map((resp: string) => (
+                    <li key={resp}>{resp}</li>
+                  ))}
+                </ul>
+                <h4>Projects:</h4>
+                <ul>
+                  {experience.projects.map((project: string) => (
+                    <li key={project}>{project}</li>
+                  ))}
+                </ul>
+                <h4>Certification:</h4>
+                <ul>
+                  {experience.certification.map((cert: string) => (
+                    <li key={cert}>{cert}</li>
+                  ))}
+                </ul>
+              </TabPanel>
+            </>
           ))}
-        </TabList>
-        {experiences?.map((experience: any) => (
-          <>
-            <TabPanel key={experience.position}>
-              <h3>{experience.position}</h3>
-              <h3>{`${dayjs(experience.start_date).format("MMMM YYYY")} - ${
-                now.diff(dayjs(experience.end_date), "day") <= 30
-                  ? "Present"
-                  : dayjs(experience.end_date).format("MMMM YYYY")
-              }`}</h3>
-              <h4>Responsibility:</h4>
-              <ul>
-                {experience.responsibility.map((resp: string) => (
-                  <li key={resp}>{resp}</li>
-                ))}
-              </ul>
-              <h4>Projects:</h4>
-              <ul>
-                {experience.projects.map((project: string) => (
-                  <li key={project}>{project}</li>
-                ))}
-              </ul>
-              <h4>Certification:</h4>
-              <ul>
-                {experience.certification.map((cert: string) => (
-                  <li key={cert}>{cert}</li>
-                ))}
-              </ul>
-            </TabPanel>
-          </>
-        ))}
-      </ExperienceTabs>
+        </ExperienceTabs>
+      </Container>
     </ExperienceSection>
   );
 };
@@ -93,14 +93,19 @@ const Experience = (props: Props) => {
 export default Experience;
 
 const ExperienceSection = styled.section`
-  display: flex;
   background: ${({ theme }) => theme.primaryBgColor};
   margin: 120px 80px;
-  flex-direction: column;
 
   @media (max-width: 768px) {
     margin: 60px 0;
   }
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 `;
 
 const ExperienceTitle = styled.h2`
@@ -149,6 +154,12 @@ const ExperienceTabs = styled(Tabs)`
     font-weight: 400;
     line-height: 1.5;
     background-color: ${({ theme }) => theme.tertiaryBgColor};
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background: ${({ theme }) => theme.secondaryBgColor};
+      color: ${({ theme }) => theme.secondaryFgColor};
+    }
 
     span {
       margin-left: 8px;
@@ -163,7 +174,7 @@ const ExperienceTabs = styled(Tabs)`
   .react-tabs__tab--selected {
     background: #fff1b8;
     color: black;
-    font-weight: 500;
+    font-weight: 700;
     border: none;
   }
 

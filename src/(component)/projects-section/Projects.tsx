@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { TbChevronsUpRight } from "react-icons/tb";
-import { CiPlay1 } from "react-icons/ci";
+import { IoPlayOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
@@ -32,14 +32,14 @@ const Projects = (props: Props) => {
       } catch (error) {}
     })().then((data) => {
       if (props.isShowMore) {
-        const showProjects = data.projects.slice(0, 3);
+        const showProjects = data.projects?.slice(0, 3);
         setProjects(showProjects);
       } else {
         setProjects(data.projects);
       }
     });
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       setIsMobile(true);
     }
   }, [props.isShowMore]);
@@ -82,7 +82,7 @@ const Projects = (props: Props) => {
                     <TbChevronsUpRight
                       onClick={() => window.open(project?.view, "_blank")}
                     />
-                    <CiPlay1
+                    <IoPlayOutline
                       onClick={() => window.open(project?.video, "_blank")}
                     />
                   </HoveringIconContainer>
@@ -101,7 +101,7 @@ const Projects = (props: Props) => {
                     <TbChevronsUpRight
                       onClick={() => window.open(project?.view, "_blank")}
                     />
-                    <CiPlay1
+                    <IoPlayOutline
                       onClick={() => window.open(project?.video, "_blank")}
                     />
                   </HoveringIconContainer>
@@ -138,6 +138,8 @@ const Projects = (props: Props) => {
 export default Projects;
 
 const ProjectsSection = styled.section`
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   padding: 120px 80px 80px;
   flex-direction: column;
@@ -155,12 +157,23 @@ const ProjectsTitle = styled.h2`
   line-height: 1.25;
   letter-spacing: -0.96px;
   margin-bottom: 40px;
-  text-decoration: underline #ffe58f 10px solid;
-  text-underline-position: under;
+  width: fit-content;
+
+  &:after {
+    content: "";
+    float: left;
+    background: #ffe58f;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+  }
 
   @media (max-width: 768px) {
     font-size: 24px;
-    text-decoration: underline #ffe58f 5px solid;
+
+    &:after {
+      height: 5px;
+    }
   }
 `;
 
@@ -175,7 +188,7 @@ const ProjectCard = styled(motion.div)`
   align-items: center;
   padding: 120px 64px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 16px;
     flex-direction: column;
     justify-content: center;
@@ -198,7 +211,6 @@ const ProjectDetail = styled.div`
 
 const ProjectTitle = styled.h3`
   color: ${({ theme }) => theme.primaryFgColor};
-  text-align: justify;
   font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
@@ -319,12 +331,12 @@ const HoveringIconContainer = styled.div`
   display: flex;
   transform: translate(0, -250%);
   z-index: 4;
-  margin-left: 30%;
+  margin-left: 27%;
   gap: 150px;
 
   svg {
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
     padding: 4px;
     background-color: #fff1b8;
     border-radius: 100%;
@@ -332,11 +344,12 @@ const HoveringIconContainer = styled.div`
   }
 
   @media (max-width: 768px) {
+    margin-left: 30%;
     gap: 64px;
 
     svg {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
     }
   }
 `;

@@ -7,63 +7,69 @@ import { FaDribbble } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <FooterSection>
-      <FooterContent>
-        <FooterAddress>
-          <h4>Address</h4>
-          <p>Bangkok, Thailand, 10250</p>
-        </FooterAddress>
-        <FooterContact>
-          <h4>Contact</h4>
-          <Link href="mailto:kultirat.p@gmail.com">kultirat.p@gmail.com</Link>
-        </FooterContact>
-        <FooterFollowMe>
-          <h4>Follow Me</h4>
-          <div className="social">
-            <FaLinkedin
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/kultirat-phongpun-533959102",
-                  "_blank"
-                )
-              }
-            />
-            <FaBehanceSquare
-              onClick={() =>
-                window.open("https://www.behance.net/kultiraphongpu1", "_blank")
-              }
-            />
-            <FaDribbble
-              onClick={() =>
-                window.open("https://dribbble.com/Phongpun", "_blank")
-              }
-            />
-            <FaInstagram
-              onClick={() =>
-                window.open("https://www.instagram.com/ellepajinko/", "_blank")
-              }
-            />
-            <FaMedium
-              onClick={() =>
-                window.open(
-                  "https://medium.com/@kultiratellephongpun",
-                  "_blank"
-                )
-              }
-            />
-          </div>
-        </FooterFollowMe>
-      </FooterContent>
-      <FooterCopyRight>
-        © Copyright Kultirat Phongpun{" "}
-        {currentYear === 2023 ? `2023` : `2023 - ${currentYear}`}
-      </FooterCopyRight>
+      <Container>
+        <FooterContent>
+          <FooterAddress>
+            <h4>Address</h4>
+            <p>Bangkok, Thailand, 10250</p>
+          </FooterAddress>
+          <FooterContact>
+            <h4>Contact</h4>
+            <Link href="mailto:kultirat.p@gmail.com">kultirat.p@gmail.com</Link>
+          </FooterContact>
+          <FooterFollowMe>
+            <h4>Follow Me</h4>
+            <div className="social">
+              <FaLinkedin
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kultirat-phongpun-533959102",
+                    "_blank"
+                  )
+                }
+              />
+              <FaBehanceSquare
+                onClick={() =>
+                  window.open(
+                    "https://www.behance.net/kultiraphongpu1",
+                    "_blank"
+                  )
+                }
+              />
+              <FaDribbble
+                onClick={() =>
+                  window.open("https://dribbble.com/Phongpun", "_blank")
+                }
+              />
+              <FaInstagram
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/ellepajinko/",
+                    "_blank"
+                  )
+                }
+              />
+              <FaMedium
+                onClick={() =>
+                  window.open(
+                    "https://medium.com/@kultiratellephongpun",
+                    "_blank"
+                  )
+                }
+              />
+            </div>
+          </FooterFollowMe>
+        </FooterContent>
+        <FooterCopyRight>
+          © Copyright Kultirat Phongpun{" "}
+          {currentYear === 2023 ? `2023` : `2023 - ${currentYear}`}
+        </FooterCopyRight>
+      </Container>
     </FooterSection>
   );
 };
@@ -72,13 +78,21 @@ export default Footer;
 
 const FooterSection = styled.footer`
   background: #fff1b8;
-  display: flex;
-  flex-direction: column;
   margin-top: 130px;
-  padding: 60px 80px;
 
   @media (max-width: 768px) {
     margin-top: 0;
+  }
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 80px;
+
+  @media (max-width: 768px) {
     padding: 24px 16px;
     flex-direction: column;
   }
@@ -148,6 +162,7 @@ const FooterFollowMe = styled.div`
   .social {
     display: flex;
     gap: 32px;
+    flex-wrap: wrap;
 
     svg {
       cursor: pointer;

@@ -17,53 +17,55 @@ type Props = {};
 const Tool = (props: Props) => {
   return (
     <ToolSection>
-      <ToolTitle>{`Here are tools I've been working with:`}</ToolTitle>
-      <Tools>
-        <div className="hover-container">
-          <FaFigma size={40} />
-          <div className="hover-content">80%</div>
-        </div>
-        <div className="hover-container">
-          <SiAdobephotoshop size={40} />
-          <div className="hover-content">30%</div>
-        </div>
-        <div className="hover-container">
-          <SiAdobeillustrator size={40} />
-          <div className="hover-content">30%</div>
-        </div>
-        <div className="hover-container">
-          <CgMaze size={40} />
-          <div className="hover-content">50%</div>
-        </div>
-        <div className="hover-container">
-          <SiJira size={40} />
-          <div className="hover-content">80%</div>
-        </div>
-        <div className="hover-container">
-          <RiNotionFill size={40} />
-          <div className="hover-content">80%</div>
-        </div>
-        <div className="hover-container">
-          <FaHtml5 size={40} />
-          <div className="hover-content">50%</div>
-        </div>
-        <div className="hover-container">
-          <FaCss3Alt size={40} />
-          <div className="hover-content">50%</div>
-        </div>
-        <div className="hover-container">
-          <IoLogoJavascript size={40} />
-          <div className="hover-content">30%</div>
-        </div>
-        <div className="hover-container">
-          <PiFileSqlThin size={40} />
-          <div className="hover-content">50%</div>
-        </div>
-        <div className="hover-container">
-          <SiMongodb size={40} />
-          <div className="hover-content">50%</div>
-        </div>
-      </Tools>
+      <Container>
+        <ToolTitle>{`Here are tools I've been working with:`}</ToolTitle>
+        <Tools>
+          <div className="hover-container">
+            <FaFigma size={40} />
+            <div className="hover-content">80%</div>
+          </div>
+          <div className="hover-container">
+            <SiAdobephotoshop size={40} />
+            <div className="hover-content">30%</div>
+          </div>
+          <div className="hover-container">
+            <SiAdobeillustrator size={40} />
+            <div className="hover-content">30%</div>
+          </div>
+          <div className="hover-container">
+            <CgMaze size={40} />
+            <div className="hover-content">50%</div>
+          </div>
+          <div className="hover-container">
+            <SiJira size={40} />
+            <div className="hover-content">80%</div>
+          </div>
+          <div className="hover-container">
+            <RiNotionFill size={40} />
+            <div className="hover-content">80%</div>
+          </div>
+          <div className="hover-container">
+            <FaHtml5 size={40} />
+            <div className="hover-content">50%</div>
+          </div>
+          <div className="hover-container">
+            <FaCss3Alt size={40} />
+            <div className="hover-content">50%</div>
+          </div>
+          <div className="hover-container">
+            <IoLogoJavascript size={40} />
+            <div className="hover-content">30%</div>
+          </div>
+          <div className="hover-container">
+            <PiFileSqlThin size={40} />
+            <div className="hover-content">50%</div>
+          </div>
+          <div className="hover-container">
+            <SiMongodb size={40} />
+            <div className="hover-content">50%</div>
+          </div>
+        </Tools>
+      </Container>
     </ToolSection>
   );
 };
@@ -71,18 +73,26 @@ const Tool = (props: Props) => {
 export default Tool;
 
 const ToolSection = styled.section`
+  margin: 120px 80px;
+
+  @media (max-width: 768px) {
+    margin: 120px 0;
+  }
+`;
+
+const Container = styled.div`
+  background: ${({ theme }) => theme.tertiaryBgColor};
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin: 120px 80px;
   padding: 60px 32px;
   gap: 32px;
   border-radius: 24px;
-  background: ${({ theme }) => theme.tertiaryBgColor};
   box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
     0px 20px 24px -4px rgba(16, 24, 40, 0.08);
 
   @media (max-width: 768px) {
-    margin: 120px 0;
     padding: 24px 16px;
   }
 `;
@@ -124,7 +134,6 @@ const Tools = styled.div`
       left: 0;
       background: ${({ theme }) => theme.tertiaryBgColor};
       transition: all 0.5s ease-in-out;
-      border-radius: 4px;
     }
 
     &:hover {

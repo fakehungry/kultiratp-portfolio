@@ -60,6 +60,6 @@ const ProjectImgOverlay = styled.div`
   border-radius: 12px;
 
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 24px;
   }
 `;

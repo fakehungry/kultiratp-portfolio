@@ -3,44 +3,46 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-type Props = {};
-
-const Quote = (props: Props) => {
+const Quote = () => {
   return (
     <QuoteSection>
-      <QuoteFemale
-        src="/png/avatar-female.png"
-        width={80}
-        height={80}
-        alt="female-avatar"
-        animate={{
-          translateY: [0, 150, 320, 150, 0],
-        }}
-        transition={{
-          times: [0, 0.25, 0.5, 0.75, 1],
-          duration: 3,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      <QuoteEnclose>“</QuoteEnclose>
-      <QuoteText>I love creating products that bring people together</QuoteText>
-      <QuoteEnclose>”</QuoteEnclose>
-      <QuoteMale
-        src="/png/avatar-male.png"
-        width={80}
-        height={80}
-        alt="male-avatar"
-        animate={{
-          translateY: [0, -150, -320, -150, 0],
-        }}
-        transition={{
-          times: [0, 0.25, 0.5, 0.75, 1],
-          duration: 3,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
+      <Container>
+        <QuoteFemale
+          src="/png/avatar-female.png"
+          width={80}
+          height={80}
+          alt="female-avatar"
+          animate={{
+            translateY: [0, 150, 320, 150, 0],
+          }}
+          transition={{
+            times: [0, 0.25, 0.5, 0.75, 1],
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        <QuoteEnclose>“</QuoteEnclose>
+        <QuoteText>
+          I love creating products that bring people together
+        </QuoteText>
+        <QuoteEnclose>”</QuoteEnclose>
+        <QuoteMale
+          src="/png/avatar-male.png"
+          width={80}
+          height={80}
+          alt="male-avatar"
+          animate={{
+            translateY: [0, -150, -320, -150, 0],
+          }}
+          transition={{
+            times: [0, 0.25, 0.5, 0.75, 1],
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </Container>
     </QuoteSection>
   );
 };
@@ -48,8 +50,13 @@ const Quote = (props: Props) => {
 export default Quote;
 
 const QuoteSection = styled.section`
-  display: flex;
   background-color: ${({ theme }) => theme.tertiaryBgColor};
+`;
+
+const Container = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;

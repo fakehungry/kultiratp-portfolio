@@ -123,7 +123,11 @@ export const ConcaveSvg = () => {
     );
 
     //@ts-ignore
-    const webDesignV = Vertices.fromPath("0 0 180 0 180 98 110 188 0 188 0 0"),
+    const webDesignV = Vertices.fromPath(
+        isMobile
+          ? "0 0 117 0 117 60 72 120 0 120 0 0"
+          : "0 0 180 0 180 98 110 188 0 188 0 0"
+      ),
       webDesign = Bodies.fromVertices(
         Math.floor(Math.random() * divWidth),
         Math.floor(Math.random() * 250),
@@ -195,7 +199,7 @@ export const ConcaveSvg = () => {
       userResearch,
       uxUi,
       appDesign,
-      // webDesign,
+      webDesign,
       designSystem,
       webDev,
       mouseConstraint,
@@ -216,9 +220,9 @@ export const ConcaveSvg = () => {
     <div
       ref={boxRef}
       style={{
-        border: "1px solid white",
-        width: "90vw",
-        height: "75vh",
+        width: "60vw",
+        height: "60vh",
+        margin: "0 auto",
       }}
     >
       <canvas ref={canvasRef} />
