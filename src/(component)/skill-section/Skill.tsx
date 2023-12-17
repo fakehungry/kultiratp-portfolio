@@ -23,8 +23,12 @@ const Skill = (props: Props) => {
 export default Skill;
 
 const SkillSection = styled.section`
-  height: 80vh;
+  height: 100vh;
   background: ${({ theme }) => theme.secondaryBgColor};
+
+  @media (max-width: 768px) {
+    height: 120vh;
+  }
 `;
 
 const Container = styled.div`

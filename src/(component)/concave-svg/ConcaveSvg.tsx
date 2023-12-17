@@ -123,11 +123,7 @@ export const ConcaveSvg = () => {
     );
 
     //@ts-ignore
-    const webDesignV = Vertices.fromPath(
-        isMobile
-          ? "0 0 117 0 117 60 72 120 0 120 0 0"
-          : "0 0 180 0 180 98 110 188 0 188 0 0"
-      ),
+    const webDesignV = Vertices.fromPath("0 0 180 0 180 98 110 188 0 188 0 0"),
       webDesign = Bodies.fromVertices(
         Math.floor(Math.random() * divWidth),
         Math.floor(Math.random() * 250),
@@ -136,9 +132,7 @@ export const ConcaveSvg = () => {
         {
           render: {
             sprite: {
-              texture: isMobile
-                ? "./svg/web-design-mobile.svg"
-                : "./svg/web-design.svg",
+              texture: "./svg/web-design.svg",
             },
           },
         }
@@ -199,11 +193,12 @@ export const ConcaveSvg = () => {
       userResearch,
       uxUi,
       appDesign,
-      webDesign,
       designSystem,
       webDev,
       mouseConstraint,
     ]);
+
+    !isMobile && Composite.add(world, [webDesign]);
 
     render.mouse = mouse;
 
@@ -220,8 +215,8 @@ export const ConcaveSvg = () => {
     <div
       ref={boxRef}
       style={{
-        width: "60vw",
-        height: "60vh",
+        width: "70vw",
+        height: isMobile ? "80vh" : "70vh",
         margin: "0 auto",
       }}
     >
