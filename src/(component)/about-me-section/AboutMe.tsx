@@ -47,7 +47,7 @@ const AboutMe = () => {
 export default AboutMe;
 
 const AboutMeSection = styled.section`
-  height: 50vh;
+  height: 70vh;
   margin: 80px 80px 0;
 
   @media (max-width: 768px) {

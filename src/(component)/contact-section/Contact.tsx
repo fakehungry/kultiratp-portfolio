@@ -70,6 +70,10 @@ export default Contact;
 const ContactSection = styled.section`
   background: #fff1b8;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Container = styled.div`

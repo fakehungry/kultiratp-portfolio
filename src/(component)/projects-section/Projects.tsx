@@ -187,12 +187,14 @@ const ProjectCard = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   padding: 120px 64px;
+  gap: 16px;
 
   @media (max-width: 1024px) {
     padding: 16px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0;
   }
 `;
 
@@ -215,6 +217,7 @@ const ProjectTitle = styled.h3`
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.72px;
+  z-index: 5;
 
   @media (max-width: 768px) {
     font-size: 24px;
