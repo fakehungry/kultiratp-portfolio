@@ -13,6 +13,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Kultirat Phongpun",
   description: "A UX/UI Designer, Responsive design and web development.",
+  keywords:
+    "Kultirat Phongpun, Kultirat, Phongpun, Kultirat Phongpun, UX/UI Designer, Responsive design",
 };
 
 export default function RootLayout({
