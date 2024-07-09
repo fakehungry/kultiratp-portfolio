@@ -29,8 +29,7 @@ const defaultProjects = [
       "Prototyping",
       "Usability Test",
     ],
-    img: "https://s3-alpha-sig.figma.com/img/821f/e259/7961f0f9ed8b2c0c8d103eb00e2e5061?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PtcyGfNyeurg~r9Wyr~ubkJ6AT7-jamBD-JcEdObJM9BCF0sf6ndXCtJy-yPNAuGyQox9mpOu2TZr9QUtMbP8W-sQb3yxfEQ-i15EIGLE6g3wW9ACC4rQYLIKheCl4DfIRYQtRA81MnHwQwqG8qDowxXafcUOuZWqm0uFNRIRBBAjSxNKuJIp9iQVSrRqIy8iMms5-pTKBsRIZLc~Fnrpqjzo-TozahPFpFjYrbfHQhgqRi7~ruCN3znqQoulSrQW0fqkjZyFv9kbvuz9CT20Vu0pikQwfVn8F3k1X-eKs0OMu41BZtAzAk3X7npl8Fg2QtfEl7BXe1zz46EO~uS0Q__",
-    view: "https://www.figma.com/proto/My9HLZl79AucZ95xc6MW9O/FINNIE?page-id=109%3A2723&type=design&node-id=145-2253&viewport=868%2C375%2C0.17&t=5q7Sx5qbLTNoyhXm-1&scaling=scale-down&starting-point-node-id=145%3A2253",
+    img: "/png/finnie.webp",
     video:
       "https://www.figma.com/proto/My9HLZl79AucZ95xc6MW9O/FINNIE?page-id=109%3A2723&type=design&node-id=145-2253&viewport=868%2C375%2C0.17&t=5q7Sx5qbLTNoyhXm-1&scaling=scale-down&starting-point-node-id=145%3A2253",
   },
@@ -45,7 +44,7 @@ const defaultProjects = [
       "User Flow",
       "UI Design",
     ],
-    img: "https://s3-alpha-sig.figma.com/img/7097/0121/5e6c546c59c8da684ab2d0a1f5046ec0?Expires=1703462400&Signature=gWHW8ZkJFUOzQ~kqAK7xYVHFbj4iEqbM5soVWQMKOMMtFvJQPhKgJKO6HQOPsfbAaVbnI~W95paDBeYKMTeAZpT8e8oi962fIN5CiVFdFxYXks6VPnEDVEwzlRCp3lm~hi0kyOntzWLSg~xHJkJrDgPkG23-ZsnekGKPdyvgFddaAOS8qyhVPWsnJKYWc0JqUCCqQCemfsWEV~l0MGs737WmflI3Ru4eQ6~lWqYqF85FoDx7OE6Wqb6eeAc102VmlZtjZ0QiiNNDzK0xRZiZixwCa0LIUmAIZbOjGYHo1xeBJSTnDy-gmKPxG4rEnBlU3BQaqMyYTerzanweA1XBMA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+    img: "/png/cmms.webp",
     view: "https://vimeo.com/879713609",
     video:
       "https://www.figma.com/proto/Ggej3vvU0v8TwW1RNTDQpS/AltoTech---Redesign-CMMS?page-id=1022%3A9651&type=design&node-id=1022-9652&viewport=975%2C921%2C0.29&t=ufAXoQ9b2fN7RpmR-1&scaling=scale-down&starting-point-node-id=1022%3A9652",
@@ -60,7 +59,7 @@ const defaultProjects = [
       "Responsive Design",
       "Brand Identity",
     ],
-    img: "https://s3-alpha-sig.figma.com/img/85bc/102f/360939519766177af36a542c8c463848?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=afoUSiz4LbAqT2VeviA6aHqUhXERx5DHEoOrG~hv7SmYvvL5T3BlbtOXFZ68TxxnmU7eXN50vtym7M7XE1O24~Jy8-M4EUH3A1YJPImpSsWI9e2o3PMKZ6QF7pWfBnAaiP4wJBtkSGECkiREfpx4xOI-kjrXOt9fZ8ZOY4eZvP78Ax-xkxYnHy-TI-AQu9XH0BIVBhwkmScwPC6QEqQEuOezihFfTVAdhODC0UvqD2xmgwXHnKe534eaRWc0mUy54HnifmIHIkvH-vyW9ZbfiofDU7V-mfcPMYyZka8S7LNsy3Kj3J3BzSVvMu3ljwFVoRHeI9oxx5GL772-Py4png__",
+    img: "/png/ktc.webp",
     view: "https://drive.google.com/file/d/1c3dhd9QY5_mjP_LTmKdwONJI1Zdyqt8O/view",
     video: "https://vimeo.com/865870397",
   },
@@ -75,7 +74,7 @@ const defaultProjects = [
       "UX/UI Design",
       "Prototyping",
     ],
-    img: "https://s3-alpha-sig.figma.com/img/427f/517a/d8d67411ebed5ab8fbfaa09167c47500?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h~DOrercQPhSwAV9byZUOWlpmUgPYLmxoSRTfHE8tdp1aFazeKWEZWlM2ZK3taXA9UvWfmsTn-rmDtc3cwX0eYpogRiprlOhL0566YITFSZ~ojvRl-jrufHuNLjOmB2vWCg3t4S0bWkwCOQpovE0KBj-Yp0EsYBmyFJzntUTEiPcSfUnHNwcHSDTtnwMyMPYwZMZoLO5~YHQQzYnN~ldFWGsRSD9OxeOUn~5CSNCJ5kayyy9-LoZrVJdXweqshuvitZSASad6-W7ny11wJTwpyV0yqIB0odbLilJpw59B7js8K33y14YJnC3Q9yI5sj7eADtzEQA5NcrWhGAb18vxw__",
+    img: "/png/thai-credit.webp",
     view: "https://drive.google.com/file/d/1pg5BK7WNHhMWj3ZM1NH8tBkkeqDG5e2B/view?usp=sharing",
     video:
       "https://www.figma.com/proto/QXAACGGt0NQ9d39yBEQYNA/Thaicredit-bank-Design-challenge?page-id=13%3A37&type=design&node-id=45-239&viewport=214%2C310%2C0.46&t=6jF3h80q9qqvxGXI-1&scaling=scale-down",
@@ -90,7 +89,7 @@ const defaultProjects = [
       "Interaction design",
       "Custom Component",
     ],
-    img: "https://s3-alpha-sig.figma.com/img/9d4c/fd23/a37a126369149b62938ec7b11626a464?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W6Mhl4bL9tN5295yUGpLOaaMoXmgt7UHR8sFUljkzom6XGeesoswmO~hwkJJYAiEJd8Yx5CDgpgJkXsoAKhGAUIRbOG1-Cp1TsZIZfHCD3J5P2ydi72aGm0y3oPikLlzZOSL7sGktd3~ONkTW3LYIJ1usPnFsdeQs6trqgo9tYXopY100EXvZpxFR31OHTOxKGGb7xg9GhXxv9l-v7oaKGh2PH78~VESiFXO0v8cbfkhxy1BNq5n1qrVSD3I5bhNSdk89uvLVNLQafrMyLmMvz7bTQchIWhPbg1yHEdZ-7HXXlXYQ~u6kmrm7WNZ1FNMYxf1KjN1fKQlveyMwZL2VA__",
+    img: "/png/responsive.webp",
     view: "https://drive.google.com/file/d/1ZKXSt0ngWji4vzG3kWudi8Zp5yhXqvj_/view",
     video:
       "https://www.figma.com/proto/Yq2InP0qkzVE2CEZqhJ8B8/Kultiratp.com?page-id=443%3A8999&type=design&node-id=443-9053&viewport=1038%2C615%2C0.06&t=efb82GUZ3WGUVoiI-1&scaling=scale-down&starting-point-node-id=443%3A9053&show-proto-sidebar=1&mode=design",
