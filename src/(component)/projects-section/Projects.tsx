@@ -94,6 +94,22 @@ const defaultProjects = [
     video:
       "https://www.figma.com/proto/Yq2InP0qkzVE2CEZqhJ8B8/Kultiratp.com?page-id=443%3A8999&type=design&node-id=443-9053&viewport=1038%2C615%2C0.06&t=efb82GUZ3WGUVoiI-1&scaling=scale-down&starting-point-node-id=443%3A9053&show-proto-sidebar=1&mode=design",
   },
+  {
+    title: "Employee Engagement",
+    description:
+      "Enhance productivity and foster a positive work environment with our recognition channel, mission & campaign tools, and employee wellbeing index",
+    tags: [
+      "Product Owner",
+      "Key challenge",
+      "Engagement",
+      "Product planning",
+      "Mock up",
+    ],
+    img: "/png/engagement.webp",
+    view: "https://drive.google.com/file/d/1RQrHKX0wdP93Inm_MZ9vQXaUgyFEdmO9/view",
+    video:
+      "https://drive.google.com/file/d/1RQrHKX0wdP93Inm_MZ9vQXaUgyFEdmO9/view",
+  },
 ];
 
 const Projects = (props: Props) => {
