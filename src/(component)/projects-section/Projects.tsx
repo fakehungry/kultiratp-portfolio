@@ -30,6 +30,7 @@ const defaultProjects = [
       "Usability Test",
     ],
     img: "/png/finnie.webp",
+    view: "https://drive.google.com/file/d/1CqRU3nwZJut-ec88wESwmu_ipYDn828w/view?usp=sharing",
     video:
       "https://www.figma.com/proto/My9HLZl79AucZ95xc6MW9O/FINNIE?page-id=109%3A2723&type=design&node-id=145-2253&viewport=868%2C375%2C0.17&t=5q7Sx5qbLTNoyhXm-1&scaling=scale-down&starting-point-node-id=145%3A2253",
   },
